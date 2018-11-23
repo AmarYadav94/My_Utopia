@@ -1,0 +1,49 @@
+.container{
+    max-width: 90%;
+    margin-left:auto;
+    margin-right: auto;
+   
+  }
+  .headSection{
+    margin-top:2%;
+    margin-bottom: 10%;
+    background: #04030f;
+  }
+.logo {
+    max-width: 90px;
+    height: 30px;
+    margin-left: 3%;
+    background-image: url("/img/logo.png");
+    background-repeat: no-repeat;
+  }
+  .utopiaLogoFlex {
+    display: flex;
+    margin-top:5%;
+  }
+  .identityText {
+    font-family: Colfax Black;
+    line-height: 23px;
+    font-size: 22px;
+    letter-spacing: 0.942857px;
+    text-transform: uppercase;
+    flex:1;
+    display:flex;
+    color: #ffffff;
+  
+  }
+  .utopiaLogo {
+    flex:1;
+    display:flex;
+    justify-content: flex-end;
+    color:white;
+  }
+  .utopiaLogo div{
+    width:144px;
+    height: 52px;
+    background-image: url("/img/utopiaLogo.png");
+    background-repeat: no-repeat;
+  }
+  @media only screen and (max-width:480px)
+  {
+      
+  }
