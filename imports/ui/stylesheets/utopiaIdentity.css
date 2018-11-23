@@ -16,6 +16,7 @@
 }
 .optionFlex {
   display: flex;
+  flex-wrap: wrap;
   margin-top:5%;
 }
 .optionFlex p{
@@ -52,4 +53,15 @@
   text-transform: uppercase;
   color: #ffffff;
 }
+@media only screen and (max-width: 600px) {
+  .optionFlex {
+    flex-direction: column;
+  }
+  .optionBox1 .optionText{
+   margin:0 auto;
+  }
+  .optionBox2 .optionText{
+    margin:0 auto;
+   }
 
+}
