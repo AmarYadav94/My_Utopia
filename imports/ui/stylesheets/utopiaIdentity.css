@@ -26,6 +26,7 @@
   flex: 1;
   display: flex;
   justify-content:flex-end;
+  cursor:pointer;
 }
 .optionBox1 div{
   width: 318px;
