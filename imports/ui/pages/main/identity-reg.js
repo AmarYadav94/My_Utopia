@@ -17,13 +17,10 @@ Template.identity_reg.events({
     'click #reg-id': function (event) {
         event.preventDefault()
         var name = $('#name').val()
-        var dob = $('#dob').val()
-        var city = $('#city').val()
-        var contact = $('#contact').val()
-        var email = $('#email').val()
+        var age = $('#age').val()
+        var gender = $('#gender').val()
+        var origin = $('#origin').val()
         console.log(name)
-        Meteor.call('user.insert', name,dob,city,contact,email)
-
     },
 
 
