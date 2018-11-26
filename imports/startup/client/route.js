@@ -6,7 +6,7 @@ import "../../ui/layouts/body/body.js"
 FlowRouter.route('/', {
     name: 'welocomePage',
     action() {
-      BlazeLayout.render('App_body', { main: 'welocomePage' });
+      BlazeLayout.render('App_body', { main: 'welcomePage' });
     },
   });
 FlowRouter.route('/identity-reg', {
