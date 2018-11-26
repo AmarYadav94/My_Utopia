@@ -4,6 +4,7 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import "../../ui/pages/main/welocomePage.js";
 import "../../ui/pages/main/identity-reg.js";
 import "../../ui/layouts/body/body.js"
+import "../../ui/pages/main/proposal.js";
 
 FlowRouter.route('/', {
   name: 'welocomePage',
@@ -17,5 +18,12 @@ FlowRouter.route('/identity-reg', {
   name: 'identity-reg',
   action() {
     BlazeLayout.render('App_body', { main: 'identity_reg' });
+  }
+});
+
+FlowRouter.route('/proposal', {
+  name: "proposal-page",
+  action(){
+    BlazeLayout.render('App_body', { main: 'App_proposal'});
   }
 });
