@@ -23,7 +23,7 @@ body{
   /* height: 450px; */
 }
 .heading-i .heading-reg{
-    font-family: Colfax;
+    font-family: Colfax Light;
 line-height: 19px;
 font-size: 24px;
 letter-spacing: 0.942857px;
@@ -36,7 +36,7 @@ color: white;
   margin: 25px;
   display: flex;
   flex-direction: row;
-  
+  flex-wrap: wrap;
  
  /*  height: 450px; */
 }
@@ -48,6 +48,20 @@ color: white;
     margin:20px;
     /* border-bottom: 1px solid rebeccapurple; */
    
+    }
+    
+    .box1 .button-reg{
+        width: 85px;
+        height: 30px;
+        background-image: url("/img/optionBox2.png") ;
+       background-color: Transparent;
+       background-repeat:no-repeat;
+       font-family: Colfax Regular;
+        font-size: 15px;
+         
+         text-transform: uppercase;
+         color: #ffffff;
+       
     }
     .box1 .ipbox{ 
             border: 0;
@@ -70,3 +84,8 @@ color: white;
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     }
+
+    .text{
+        color: #ffffff;
+        
+        }
