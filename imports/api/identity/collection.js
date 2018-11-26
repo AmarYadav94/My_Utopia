@@ -1,6 +1,4 @@
-import {
-    Mongo
-} from 'meteor/mongo';
+import {Mongo} from 'meteor/mongo';
 
 export const Identity = new Mongo.Collection('identity');
 Identity.schema = new SimpleSchema({
