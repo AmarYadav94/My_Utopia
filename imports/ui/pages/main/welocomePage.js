@@ -31,7 +31,6 @@ Template.welcomePage.events({
         ScatterJS.scatter.connect('utopia').then(connected => {
             if (!connected) return false;
             scatter = ScatterJS.scatter;
-            console.log("scatter",scatter);
             const requiredFields = { accounts: [network] };
             const eos = scatter.eos(network, Eos, eosOptions);
             scatter.getIdentity(requiredFields).then(() => {
@@ -47,7 +46,6 @@ Template.welcomePage.events({
         });
     } else {
         ScatterJS.scatter.forgetIdentity().then(() => {
-
             localStorage.setItem("loginstatus",JSON.stringify(false));
             console.log("logout");
         });
