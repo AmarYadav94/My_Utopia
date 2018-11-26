@@ -34,8 +34,9 @@ Template.identity_reg.events({
         var origin = $('#origin').val();
         console.log(name);
         console.log(eos);
+        var username= localStorage.getItem("username")
         eos.contract('identityreg1').then(identityreg1 => {
-            identityreg1.addidentity(name,name,age,gender,origin,{authorization:"amartesttest"});
+            identityreg1.addidentity(name,name,age,gender,origin,{authorization:username});
           })
     },
 

@@ -39,6 +39,7 @@ Template.welcomePage.events({
                 console.log("account ",account);
                 console.log("inlogin")
                 localStorage.setItem("loginstatus",JSON.stringify(true));
+                localStorage.setItem("username",account);
                 
             }).catch(error => {
                 console.error(error);
@@ -47,6 +48,7 @@ Template.welcomePage.events({
     } else {
         ScatterJS.scatter.forgetIdentity().then(() => {
             localStorage.setItem("loginstatus",JSON.stringify(false));
+            localStorage.removeItem("username");
             console.log("logout");
         });
     }
