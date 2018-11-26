@@ -9,13 +9,13 @@ ScatterJS.plugins(new ScatterEOS());
 const network = {
   protocol: "http", // Defaults to https
   blockchain: "eos",
-  host: "192.93.219.219",
-  port: 8888,
-  chainId: "038f4b0fc8ff18a4f0842a8f0564611f6e96e8535901dd45e43ac8691a1c4dca"
+  host: "jungle2.cryptolions.io",
+  port: 443,
+  chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473"
 };
 
 const eosOptions = {
-  chainId: "038f4b0fc8ff18a4f0842a8f0564611f6e96e8535901dd45e43ac8691a1c4dca"
+  chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473"
 };
 
 var scatter = {};
@@ -26,10 +26,12 @@ Template.welcomePage.events({
     FlowRouter.go("/identity-reg");
   },
   "click .scatterloginlogout":function(){
+    console.log("scatter",scatter);
     if (!JSON.parse(localStorage.getItem("loginstatus"))) {
         ScatterJS.scatter.connect('utopia').then(connected => {
             if (!connected) return false;
             scatter = ScatterJS.scatter;
+            console.log("scatter",scatter);
             const requiredFields = { accounts: [network] };
             const eos = scatter.eos(network, Eos, eosOptions);
             scatter.getIdentity(requiredFields).then(() => {
@@ -44,7 +46,7 @@ Template.welcomePage.events({
             });
         });
     } else {
-        scatter.forgetIdentity().then(() => {
+        ScatterJS.scatter.forgetIdentity().then(() => {
 
             localStorage.setItem("loginstatus",JSON.stringify(false));
             console.log("logout");
