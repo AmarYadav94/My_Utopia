@@ -6,7 +6,7 @@
   background: #04030f;
 }
 .welcomeHead {
-  font-family: Colfax;
+  font-family: Colfax Light;
   line-height: 23px;
   font-size: 36px;
   text-align: center;
@@ -16,6 +16,7 @@
 }
 .optionFlex {
   display: flex;
+  flex-wrap: wrap;
   margin-top:5%;
 }
 .optionFlex p{
@@ -25,6 +26,7 @@
   flex: 1;
   display: flex;
   justify-content:flex-end;
+  cursor:pointer;
 }
 .optionBox1 div{
   width: 318px;
@@ -52,4 +54,15 @@
   text-transform: uppercase;
   color: #ffffff;
 }
+@media only screen and (max-width: 600px) {
+  .optionFlex {
+    flex-direction: column;
+  }
+  .optionBox1 .optionText{
+   margin:0 auto;
+  }
+  .optionBox2 .optionText{
+    margin:0 auto;
+   }
 
+}
