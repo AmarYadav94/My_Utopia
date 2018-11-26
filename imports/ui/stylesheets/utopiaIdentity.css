@@ -54,6 +54,23 @@
   text-transform: uppercase;
   color: #ffffff;
 }
+
+.scatterlogin-button{
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.scatterlogin-button button{
+  background: white;
+  border: 0px;
+  color: black;
+  text-transform: capitalize;
+  width: 250px;
+  height: 50px;
+  font-weight: bold;
+}
+
 @media only screen and (max-width: 600px) {
   .optionFlex {
     flex-direction: column;
