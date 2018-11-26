@@ -28,10 +28,10 @@ Template.identity_reg.events({
 
     'click #reg-id': function (event) {
         event.preventDefault()
-        var name = $('#name').val()
-        var age = $('#age').val()
-        var gender = $('#gender').val()
-        var origin = $('#origin').val()
+        var name = $('#name').val();
+        var age = parseInt($('#age').val());
+        var gender = $('#gender').val();
+        var origin = $('#origin').val();
         console.log(name);
         console.log(eos);
         eos.contract('identityreg1').then(identityreg1 => {
