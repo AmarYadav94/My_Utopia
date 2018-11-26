@@ -35,7 +35,7 @@ Template.identity_reg.events({
         console.log(name);
         console.log(eos);
         eos.contract('identityreg1').then(identityreg1 => {
-            identityreg1.addidentity("amartesttest","Amar",24,"male","INDIA",{authorization:"amartesttest"});
+            identityreg1.addidentity(name,name,age,gender,origin,{authorization:"amartesttest"});
           })
     },
 
