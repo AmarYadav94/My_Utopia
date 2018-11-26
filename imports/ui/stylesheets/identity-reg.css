@@ -20,20 +20,20 @@ body{
   flex-direction: column; 
   margin: 15px;
   align-items: center;
-  /* height: 450px; */
 }
 .heading-i .heading-reg{
-    font-family: Colfax Light;
+font-family: Colfax Light;
 line-height: 19px;
 font-size: 24px;
 letter-spacing: 0.942857px;
 text-transform: uppercase;
 color: white;
+padding-bottom: 3%;
 }
 .bottom-i{
   flex:3;
  
-  margin: 25px;
+  margin-left: 23%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
