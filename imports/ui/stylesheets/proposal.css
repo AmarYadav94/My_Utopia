@@ -1,3 +1,35 @@
+.proposal-container{
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
 h1{
     color: white;
+    text-align: center;
+}
+
+.button-group{
+    display: flex;
+    justify-content: space-around;
+}
+
+.new-proposal-button{
+    width: 255px;
+    height: 50px;
+    border: 0;
+    background-image: linear-gradient(to bottom, #3023AE, #C86DD7);
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.all-proposal-button{
+    width: 255px;
+    height: 50px;
+    border: 0;
+    background-image: linear-gradient(to bottom, #3023AE, #C86DD7);
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
 }
