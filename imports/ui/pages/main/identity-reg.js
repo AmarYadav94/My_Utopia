@@ -5,19 +5,10 @@ import "../main/header.js"
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import '../../../api/identity/methods';
+import ScatterJS from "scatterjs-core";
+import ScatterEOS from "scatterjs-plugin-eosjs";
 import Eos from "eosjs";
-
-eosConfig = {
-    chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473", // 32 byte (64 char) hex string
-    keyProvider: ['5KeNdWYxPbUpsLUa8QT64AbjTAQeHcZejcR6shHnNi1sESgxgm7'], // WIF string or array of keys..
-    httpEndpoint: 'https://jungle2.cryptolions.io:443',
-    expireInSeconds: 60,
-    broadcast: true,
-    verbose: false, // API activity
-    sign: true
-}
-eos = Eos(eosConfig)
-
+ScatterJS.plugins(new ScatterEOS());
 
 Template.identity_reg.onCreated(function () {
 
@@ -35,20 +26,19 @@ Template.identity_reg.events({
         var dob = $('#dob').val();
         var phonenumber = $('#phonenumber').val();
         var email = $('#email').val();
-        var username= localStorage.getItem("username")
+        var username = localStorage.getItem("username")
         eos.contract('identityreg1').then(identityreg1 => {
-            identityreg1.addidentity(username,firstname,midname,lastname,dob,phonenumber,email,{authorization:username}
-                , (err , res) =>{
-                    if(err)
-                    {
-                        console.log("error ",err);
+            identityreg1.addidentity(username, firstname, midname, lastname, dob, phonenumber, email, { authorization: username }
+                , (err, res) => {
+                    if (err) {
+                        console.log("error ", err);
                     }
-                    else{
-                        console.log("Result ",res);
+                    else {
+                        console.log("Result ", res);
                     }
                 });
-          } 
-          )
+        }
+        )
     },
 });
 

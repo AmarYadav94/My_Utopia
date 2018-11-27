@@ -1,11 +1,75 @@
 import "./proposal.html"
 import "../../stylesheets/proposal.css";
+import Eos from "eosjs";
+var count = 0;
+
+eosConfig = {
+    chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473", // 32 byte (64 char) hex string
+    keyProvider: ['5Jur4pK1Rb8xvdfNUUZJq5JE36HQUd9PNouWwjUdbWw7cK8ZuUo'],
+    // WIF string or array of keys..
+    httpEndpoint: 'https://jungle2.cryptolions.io:443',
+    expireInSeconds: 60,
+    broadcast: true,
+    verbose: false, // API activity
+    sign: true
+}
+const eos = Eos(eosConfig);
 
 Template.App_proposal.events({
-    "click .new-proposal-button": function(){
-        console.log("create a new proposal");
+    "click .new-proposal-button": function () {
+        document.getElementById("form-section").style.display = "block";
+        document.getElementById("all-proposals").style.display = "none";
     },
-    "click .all-proposal-button": function(){
-        console.log("view all proposals");
+    "click .all-proposal-button": async function () {
+        document.getElementById("form-section").style.display = "none";
+        document.getElementById("all-proposals").style.display = "block";
+        let tabledata = await eos.getTableRows({
+            code: "voteproposal",
+            scope: "voteproposal",
+            table: 'proposal13',
+            limit: 50,
+            json: true,
+        });
+        document.getElementById("proposal-group").innerHTML = "";
+        console.log("table data ", tabledata);
+        for(var i = 0; i< tabledata.rows.length;i++){
+            var desc = tabledata.rows[i].proposal_description;
+            document.getElementById("proposal-group").innerHTML += 
+            "<div class = 'redo'><p>"+desc+"</p><button class = 'vote-button'>vote</button>"+"</div>";
+        }
+        
+    },
+    "click #options": function () {
+        var boxName = "textbox" + count;
+        document.getElementById("form-group").innerHTML += '<input type="text" id="' + boxName + '" "  />';
+        count += 1;
+
+
+    },
+    "click #create-proposal": function () {
+
+        var proposal = $("#proposal").val();
+        var duration = parseInt($("#duration").val());
+        var noofwinners = parseInt($("#noofwinners").val());
+        var options = [];
+        for (var i = 0; i < count; i++) {
+            var textbox = "#textbox" + i;
+            var option = $(textbox).val();
+            options.push(option);
+        }
+        var username = localStorage.getItem("username")
+        eos.contract("voting").then(voting => {
+            voting.createprop(proposal, duration, options, username, noofwinners, { authorization: username }, (err, res) => {
+                if (err) {
+                    console.log("error ", err);
+                }
+                else {
+                    console.log("Result ", res);
+                }
+            })
+        })
+    },
+    "click .vote-button": function(){
+        console.log("vote button was clicked");
     }
 })
