@@ -5,7 +5,7 @@ import "../../ui/pages/main/welocomePage.js";
 import "../../ui/pages/main/identity-reg.js";
 import "../../ui/layouts/body/body.js"
 import "../../ui/pages/main/proposal.js";
-
+import "../../ui/pages/main/Registered.js";
 FlowRouter.route('/', {
   name: 'welocomePage',
   action() {
@@ -20,7 +20,12 @@ FlowRouter.route('/identity-reg', {
     BlazeLayout.render('App_body', { main: 'identity_reg' });
   }
 });
-
+FlowRouter.route('/reg-success', {
+  name: 'Reg-success',
+  action() {
+    BlazeLayout.render('App_body', { main: 'Reg-success' });
+  }
+});
 FlowRouter.route('/proposal', {
   name: "proposal-page",
   action(){
