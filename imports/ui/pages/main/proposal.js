@@ -41,10 +41,11 @@ Template.App_proposal.events({
     },
     "click #options": function () {
         var boxName = "textbox" + count;
-        document.getElementById("form-group").innerHTML += '<input type="text" id="' + boxName + '" "  />';
+        var options = "Option";
+        document.getElementById("form-group").innerHTML += "<input type = 'text' placeholder = '"+ options +"' id = '"+boxName+"'/>"
         count += 1;
-
-
+        
+        /* '<input type="text" id="' + boxName + '" "  />'; */
     },
     "click #create-proposal": function () {
 
