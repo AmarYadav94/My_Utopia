@@ -94,3 +94,8 @@ h1{
   background: transparent;
   border: 2px solid #C86DD7;
 }
+
+input:hover::-webkit-input-placeholder {
+  color: white;
+  transition: 0.5s
+}
