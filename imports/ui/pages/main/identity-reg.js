@@ -26,23 +26,27 @@ Template.identity_reg.onCreated(function () {
 // Setup event handling.
 Template.identity_reg.events({
 
-
     'click .register': function (event) {
         event.preventDefault()
-        var name = $('#name').val();
-        var age = parseInt($('#age').val());
-        var gender = $('#gender').val();
-        var origin = $('#origin').val();
-        console.log(name);
-        console.log(eos);
-        var username = localStorage.getItem("username")
+        FlowRouter.go("/reg-success");
+       /*  var firstname = $('#firstname').val();
+        var midname = $('#midname').val();
+        var lastname = $('#lastname').val();
+        var dob = $('#dob').val();
+        var phonenumber = $('#phonenumber').val();
+        var email = $('#email').val();
+        var username= localStorage.getItem("username")
         eos.contract('identityreg1').then(identityreg1 => {
-            identityreg1.addidentity(name,name,age,gender,origin,{authorization:username}).then((response)=>{
-                //FlowRouter.go("/reg-success");
-                alert("identity is registered !!!!");
+            identityreg1.addidentity(username,firstname,midname,lastname,dob,phonenumber,email,{authorization:username}).then((response)=>{
+                if(response){
+                    FlowRouter.go("/reg-success");
+                }else{
+                    alert("identity is not registered !!!!");;
+                }
+                
             });
-            alert("identity is not registered !!!!");
-          })
+          
+          }) */
     },
 
 });

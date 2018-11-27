@@ -12,72 +12,74 @@ body {
   }
   
   .heading-i {
-    flex: 1;
-  
+    flex: 1;  
     display: flex;
+    margin: 120px;
     flex-direction: column;
-    margin: 15px;
+    justify-content: center;
     align-items: center;
   }
   .heading-i .heading-reg {
-    font-family: Colfax Light;
-    line-height: 19px;
-    font-size: 24px;
-    letter-spacing: 0.942857px;
-    text-transform: uppercase;
-    color: white;
-    padding-bottom: 3%;
+  flex:1;
+  font-family: Colfax Medium;
+  line-height: 24px;
+  font-size: 32px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: #04030F;
+  color: #FFFFFF;
   }
-  .bottom-i {
-    flex: 3;
-    margin-left: 23%;
+  .id{
+  flex: 1;
+  margin-top: 20px;
+  font-family: Colfax Medium;
+  line-height: 14px;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  opacity: 0.25;
+  }
+  .idfield{
+    margin-top: 50px;
+    height: 134px;
+    width: 370px;
+    flex:1;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  
-  .bottom-i .box1 {
-    flex: 1;
-    margin: 20px;
+  .button{
+    height: 70px;
+    width: 370px;
+    font-family: Colfax;
+    line-height: 14px;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: #04030F;
+    border-image: linear-gradient(169.59deg, #3023AE -36.97%, #C86DD7 148.62%);    
+    border-image-slice: 1;
   }
-  
-  .box1 .button-reg {
-    width: 85px;
-    height: 30px;
+  .buttonfield{
+    flex:1;
+    margin-top: 50px;
+  }
+  .back
+  {
+    width: 370px;
+    height: 63px;
     background-image: url("/img/optionBox2.png");
-    background-color: Transparent;
-    background-repeat: no-repeat;
-    font-family: Colfax Regular;
-    font-size: 15px;
-  
-    text-transform: uppercase;
-    color: #ffffff;
   }
-  .box1 .ipbox {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    border-bottom: 1px solid #3023ae;
-  
-    /* FIRST NAME */
-  
-    /* text-decoration-color: linear-gradient(169.59deg, #3023AE -36.97%, #C86DD7 148.62%) */
-    /* Logo Gradient */
+  .text{
+    flex: 1;
   }
-  
-  ::placeholder {
-    font-size: 15px;
-    background: -webkit-linear-gradient(
-      169.59deg,
-      #3023ae -36.97%,
-      #c86dd7 148.62%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-transform: uppercase;
+  .insidetext{
+    width: 370px;
+    background: #04030F;
+    border: 0px;
+    border-bottom : 2px solid #FFFFFF;
   }
-  
-  .text {
-    color: #ffffff;
-  }
-  
