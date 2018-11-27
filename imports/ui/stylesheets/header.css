@@ -1,45 +1,57 @@
-.container{
-    max-width: 90%;
-    margin-left:auto;
-    margin-right: auto;
-   
-  }
-  .headSection{
-    margin-top:2%;
-    margin-bottom: 10%;
-    background: #04030f;
-  }
-.logo {
+.container {
+  width: 90%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:2%;
+}
+.headSection {
+  margin-bottom: 3%;
+  background: #04030f;
+}
+/* .logo {
     max-width: 90px;
     height: 30px;
     margin-left: 3%;
     background-image: url("/img/logo.png");
     background-repeat: no-repeat;
-  }
-  .utopiaLogoFlex {
-    display: flex;
-    margin-top:5%;
-  }
-  .identityText {
-    font-family: Colfax Black;
-    line-height: 23px;
-    font-size: 22px;
-    letter-spacing: 0.942857px;
-    text-transform: uppercase;
-    flex:1;
-    display:flex;
-    color: #ffffff;
-  
-  }
-  .utopiaLogo {
-    flex:1;
-    display:flex;
-    justify-content: flex-end;
-    color:white;
-  }
-  .utopiaLogo div{
-    width:144px;
-    height: 52px;
-    background-image: url("/img/utopiaLogo.png");
-    background-repeat: no-repeat;
-  }
+  } */
+.utopiaLogoFlex {
+  display: flex;
+  margin-top: 2%;
+}
+
+.utopiaLogo {
+  flex: 1;
+  display: flex;
+  margin-left:3%;
+  justify-content: flex-start;
+  align-content: center;
+  color: white;
+}
+.utopiaLogo div {
+  width: 140px;
+  height: 48px;
+  background-image: url("/img/utopiaLogo.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.identityText {
+  font-family: Colfax Black;
+  line-height: 19px;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  display:flex;
+  align-items: center;
+}
+.headLineBoundary{
+max-width: 100%;
+height: 1px;
+left: 0px;
+top: 160px;
+background: #FFFFFF;
+opacity: 0.25;
+}

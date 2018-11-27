@@ -1,5 +1,6 @@
 import "./identity-reg.html";
 import "../../stylesheets/identity-reg.css";
+import "../../pages/main/footer.js"
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import '../../../api/identity/methods';
@@ -26,7 +27,7 @@ Template.identity_reg.onCreated(function () {
 Template.identity_reg.events({
 
 
-    'click #reg-id': function (event) {
+    'click .register': function (event) {
         event.preventDefault()
         var name = $('#name').val();
         var age = parseInt($('#age').val());
@@ -37,7 +38,8 @@ Template.identity_reg.events({
         var username= localStorage.getItem("username")
         eos.contract('identityreg1').then(identityreg1 => {
             identityreg1.addidentity(name,name,age,gender,origin,{authorization:username}).then((response)=>{
-                FlowRouter.go("/reg-success");
+                //FlowRouter.go("/reg-success");
+                alert("identity is registered !!!!");
             });
             alert("identity is not registered !!!!");
           })

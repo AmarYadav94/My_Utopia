@@ -1,9 +1,10 @@
 import "./welcomePage.html";
 import "../../stylesheets/utopiaIdentity.css";
 import "../../pages/main/header.js";
-import ScatterJS from 'scatterjs-core';
-import ScatterEOS from 'scatterjs-plugin-eosjs'
-import Eos from 'eosjs';
+import "../../pages/main/footer.js"
+import ScatterJS from "scatterjs-core";
+import ScatterEOS from "scatterjs-plugin-eosjs";
+import Eos from "eosjs";
 ScatterJS.plugins(new ScatterEOS());
 const network = {
     protocol: "http", // Defaults to https

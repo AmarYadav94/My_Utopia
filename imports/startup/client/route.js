@@ -20,10 +20,11 @@ FlowRouter.route('/identity-reg', {
     BlazeLayout.render('App_body', { main: 'identity_reg' });
   }
 });
+
 FlowRouter.route('/reg-success', {
   name: 'Reg-success',
   action() {
-    BlazeLayout.render('App_body', { main: 'Reg-success' });
+    BlazeLayout.render('App_body', { main: 'Reg_success' });
   }
 });
 FlowRouter.route('/proposal', {
