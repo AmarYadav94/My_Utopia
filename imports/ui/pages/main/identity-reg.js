@@ -29,6 +29,7 @@ Template.identity_reg.events({
 
     'click .register': function (event) {
         event.preventDefault()
+        console.log("instance---",eosinstance)       ;
         var firstname = $('#firstname').val();
         var midname = $('#midname').val();
         var lastname = $('#lastname').val();
@@ -37,18 +38,16 @@ Template.identity_reg.events({
         var email = $('#email').val();
         var username= localStorage.getItem("username")
         eos.contract('identityreg1').then(identityreg1 => {
-            identityreg1.addidentity(username,firstname,midname,lastname,dob,phonenumber,email,{authorization:username}
-                , (err , res) =>{
-                    if(err)
-                    {
-                        console.log("error ",err);
-                    }
-                    else{
-                        console.log("Result ",res);
-                    }
-                });
-          } 
-          )
+            identityreg1.addidentity(username,firstname,midname,lastname,dob,phonenumber,email,{authorization:username}).then((response)=>{
+                if(response){
+                    FlowRouter.go("/reg-success");
+                }else{
+                    alert("identity is not registered !!!!");;
+                }
+                
+            });
+          
+          })
     },
     "click #firstname":function(){
         document.getElementById("progressBar").style.width="16%";
