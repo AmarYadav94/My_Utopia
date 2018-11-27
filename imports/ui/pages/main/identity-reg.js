@@ -1,6 +1,7 @@
 import "./identity-reg.html";
 import "../../stylesheets/identity-reg.css";
 import "../../pages/main/footer.js"
+import "../main/header.js"
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import '../../../api/identity/methods';
@@ -36,10 +37,18 @@ Template.identity_reg.events({
         var email = $('#email').val();
         var username= localStorage.getItem("username")
         eos.contract('identityreg1').then(identityreg1 => {
-            identityreg1.addidentity(username,firstname,midname,lastname,dob,phonenumber,email,{authorization:username});
-          })
+            identityreg1.addidentity(username,firstname,midname,lastname,dob,phonenumber,email,{authorization:username}
+                , (err , res) =>{
+                    if(err)
+                    {
+                        console.log("error ",err);
+                    }
+                    else{
+                        console.log("Result ",res);
+                    }
+                });
+          } 
+          )
     },
-
-
 });
 
