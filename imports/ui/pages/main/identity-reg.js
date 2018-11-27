@@ -4,7 +4,7 @@ import "../../pages/main/footer.js"
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import '../../../api/identity/methods';
-import  Eos from "eosjs";
+import Eos from "eosjs";
 
 eosConfig = {
     chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473", // 32 byte (64 char) hex string
@@ -14,8 +14,8 @@ eosConfig = {
     broadcast: true,
     verbose: false, // API activity
     sign: true
-  }
-  eos = Eos(eosConfig)
+}
+eos = Eos(eosConfig)
 
 
 Template.identity_reg.onCreated(function () {
