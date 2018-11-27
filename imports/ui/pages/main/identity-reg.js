@@ -1,5 +1,6 @@
 import "./identity-reg.html";
 import "../../stylesheets/identity-reg.css";
+import "../../pages/main/footer.js"
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import '../../../api/identity/methods';
