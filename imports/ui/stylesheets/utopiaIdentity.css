@@ -1,9 +1,10 @@
 /* ===================================== Welcome_Page-CSS ================================= */
 .container {
   max-width: 90%;
-  margin-left:auto;
+  margin-left: auto;
   margin-right: auto;
   background: #04030f;
+  margin-top:7%;
 }
 .welcomeHead {
   font-family: Colfax Light;
@@ -14,38 +15,46 @@
   text-transform: uppercase;
   color: white;
 }
+.welcomeSubhead {
+  font-family: Colfax Regular;
+  line-height: 36px;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-top:5%;
+  color: #ffffff;
+}
+
 .optionFlex {
   display: flex;
   flex-wrap: wrap;
-  margin-top:5%;
+  margin-top: 5%;
 }
-.optionFlex p{
+.optionFlex p {
   text-align: center;
 }
-.optionBox1{
+.optionBox1 {
   flex: 1;
   display: flex;
-  justify-content:flex-end;
-  cursor:pointer;
+  justify-content: flex-end;
+  cursor: pointer;
 }
-.optionBox1 div{
+.optionBox1 div {
   width: 318px;
   height: 63px;
   margin-right: 36px;
   background-image: url("/img/optionBox.png");
-
 }
-.optionBox2{
+.optionBox2 {
   flex: 1;
   display: flex;
-  justify-content:flex-start;
+  justify-content: flex-start;
 }
-.optionBox2 div{
+.optionBox2 div {
   width: 370px;
   height: 63px;
   margin-left: 36px;
   background-image: url("/img/optionBox2.png");
-
 }
 .optionText {
   font-family: Colfax Regular;
@@ -55,13 +64,13 @@
   color: #ffffff;
 }
 
-.scatterlogin-button{
+.scatterlogin-button {
   margin-top: 5%;
   display: flex;
   justify-content: center;
 }
 
-.scatterlogin-button button{
+.scatterlogin-button button {
   background: white;
   border: 0px;
   color: black;
@@ -75,11 +84,10 @@
   .optionFlex {
     flex-direction: column;
   }
-  .optionBox1 .optionText{
-   margin:0 auto;
+  .optionBox1 .optionText {
+    margin: 0 auto;
   }
-  .optionBox2 .optionText{
-    margin:0 auto;
-   }
-
+  .optionBox2 .optionText {
+    margin: 0 auto;
+  }
 }
