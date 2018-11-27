@@ -2,6 +2,7 @@
   width: 90%;
   max-width: 1140px;
   margin: 0 auto;
+  margin-top: 5%;
 }
 
 h1{
@@ -58,4 +59,38 @@ h1{
 .registration-form input:hover{
   border-bottom : 2px solid #fff;
   transition: 0.5s;
+}
+
+.registration-form .row3{
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row3 .upload-picture{
+  width: 300px;
+  height: 70px;
+  font-size: 18px;
+  font-family: Colfax Medium;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 14px;
+  color :#fff;
+  background: transparent;
+  border: 2px dashed #aaa;
+}
+
+.row3 .register{
+  width: 300px;
+  height: 70px;
+  margin-top: 5%;
+  font-size: 18px;
+  font-family: Colfax Medium;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 14px;
+  color :#fff;
+  background: transparent;
+  border: 2px solid #C86DD7;
 }
