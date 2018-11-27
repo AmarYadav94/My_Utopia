@@ -19,9 +19,8 @@ const eosOptions = {
   chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473"
 };
 
+
 var scatter = {};
-
-
 Template.welcomePage.events({
   "click .optionBox1": function() {
     FlowRouter.go("/identity-reg");
@@ -38,10 +37,11 @@ Template.welcomePage.events({
                 const acc = scatter.identity.accounts.find(x => x.blockchain === 'eos');
                 const account = acc.name
                 console.log("account ",account);
-                console.log("inlogin")
+                console.log("inlogin");
                 localStorage.setItem("loginstatus",JSON.stringify(true));
+                localStorage.setItem("loginButton","logout");
+                document.getElementById("loginButton").innerHTML =localStorage.getItem("loginButton");
                 localStorage.setItem("username",account);
-                
             }).catch(error => {
                 console.error(error);
             });
@@ -49,6 +49,8 @@ Template.welcomePage.events({
     } else {
         ScatterJS.scatter.forgetIdentity().then(() => {
             localStorage.setItem("loginstatus",JSON.stringify(false));
+            localStorage.setItem("loginButton","login");
+            document.getElementById("loginButton").innerHTML =localStorage.getItem("loginButton")
             localStorage.removeItem("username");
             console.log("logout");
         });

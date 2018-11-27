@@ -6,10 +6,10 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import '../../../api/identity/methods';
 import Eos from "eosjs";
-
 eosConfig = {
     chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473", // 32 byte (64 char) hex string
-    keyProvider: ['5KeNdWYxPbUpsLUa8QT64AbjTAQeHcZejcR6shHnNi1sESgxgm7'], // WIF string or array of keys..
+    keyProvider: ['5KeNdWYxPbUpsLUa8QT64AbjTAQeHcZejcR6shHnNi1sESgxgm7'],
+    // WIF string or array of keys..
     httpEndpoint: 'https://jungle2.cryptolions.io:443',
     expireInSeconds: 60,
     broadcast: true,
@@ -50,5 +50,24 @@ Template.identity_reg.events({
           } 
           )
     },
+    "click #firstname":function(){
+        document.getElementById("progressBar").style.width="16%";
+    },
+    "click #midname":function(){
+        document.getElementById("progressBar").style.width="33%";
+    },
+    "click #lastname":function(){
+        document.getElementById("progressBar").style.width="50%";
+    },
+    "click #dob":function(){
+        document.getElementById("progressBar").style.width="66%";
+    },
+    "click #phonenumber":function(){
+        document.getElementById("progressBar").style.width="83%";
+    },
+    "click #email":function(){
+        document.getElementById("progressBar").style.width="100%";
+    }
+
 });
 
