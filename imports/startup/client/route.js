@@ -16,7 +16,7 @@ FlowRouter.route('/', {
 
 FlowRouter.route('/identity-reg', {
   name: 'identity-reg',
-  action() {
+  action(params) {
     BlazeLayout.render('App_body', { main: 'identity_reg' });
   }
 });

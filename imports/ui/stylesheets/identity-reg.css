@@ -30,6 +30,12 @@ h1{
   border :0;
   border-bottom : 2px solid #aaa;
   color: white;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 14px;
+  font-family: Colfax Medium;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
 }
 
 .registration-form .row2{
@@ -46,6 +52,16 @@ h1{
   border :0;
   border-bottom : 2px solid #aaa;
   color: white;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 14px;
+  font-family: Colfax Medium;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+input:focus{
+  outline: none;
 }
 
 ::placeholder{

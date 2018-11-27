@@ -1,6 +1,7 @@
 import "./identity-reg.html";
 import "../../stylesheets/identity-reg.css";
 import "../../pages/main/footer.js"
+import "../main/header.js"
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import '../../../api/identity/methods';
@@ -28,8 +29,8 @@ Template.identity_reg.events({
 
     'click .register': function (event) {
         event.preventDefault()
-        FlowRouter.go("/reg-success");
-       /*  var firstname = $('#firstname').val();
+        console.log("instance---",eosinstance)       ;
+        var firstname = $('#firstname').val();
         var midname = $('#midname').val();
         var lastname = $('#lastname').val();
         var dob = $('#dob').val();
@@ -46,7 +47,7 @@ Template.identity_reg.events({
                 
             });
           
-          }) */
+          })
     },
 
 });

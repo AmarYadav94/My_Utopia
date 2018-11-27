@@ -29,7 +29,7 @@ Template.welcomePage.onCreated(function bodyOnCreated() {
                     if (scatter.identity) {
                         const acc = scatter.identity.accounts.find(x => x.blockchain === 'eos');
                         const account = acc.name;
-                        localStorage.setItem("loginstatus",JSON.stringify(true));
+                        localStorage.setItem("loginstatus",JSON.stringify(true));                        
                         console.log("inside created----1",localStorage.getItem("loginstatus"));   ;
 
                     } else {
@@ -46,7 +46,7 @@ Template.welcomePage.onCreated(function bodyOnCreated() {
  
 Template.welcomePage.events({
     "click .optionBox1": function() {
-        FlowRouter.go("/identity-reg");
+        FlowRouter.go("/identity-reg",{eosinstance :scatter});
       },
     'click .scatterloginlogout': function( event, instance ){
     if (!JSON.parse(localStorage.getItem("loginstatus"))) {
@@ -55,14 +55,13 @@ Template.welcomePage.events({
             scatter = ScatterJS.scatter;
             const requiredFields = { accounts: [network] };
             const eos = scatter.eos(network, Eos, eosOptions);
-            console.log("1-------------------")
+            localStorage.setItem("eosinstance",JSON.stringify(eos));
+            console.log("1-------------------",eos)
             scatter.getIdentity(requiredFields).then(() => {
                 const acc = scatter.identity.accounts.find(x => x.blockchain === 'eos');
                 const account = acc.name;
                 console.log("acccount---",account)
                 localStorage.setItem("loginstatus",JSON.stringify(true));
-                console.log("----",localStorage.getItem("loginstatus"));
-                console.log("inlogin");
             }).catch(error => {
                 console.error(error);
             });
