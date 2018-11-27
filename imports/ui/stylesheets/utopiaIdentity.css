@@ -49,6 +49,7 @@
   flex: 1;
   display: flex;
   justify-content: flex-start;
+  cursor: pointer;
 }
 .optionBox2 div {
   width: 370px;

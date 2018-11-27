@@ -47,7 +47,7 @@ Template.welcomePage.events({
         });
     } else {
         console.log("2-----------------")
-            scatter.forgetIdentity().then(() => {
+        ScatterJS.scatter.forgetIdentity().then(() => {
             localStorage.setItem("loginstatus",JSON.stringify(false));
             localStorage.setItem("loginButton","login");
             document.getElementById("loginButton").innerHTML =localStorage.getItem("loginButton")
@@ -56,5 +56,9 @@ Template.welcomePage.events({
         });
     }
     },
+    "click .optionBox2": function() {
+        FlowRouter.go("/citizenship",{eosinstance :scatter});
+      },
+
 })
 

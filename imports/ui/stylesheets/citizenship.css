@@ -63,7 +63,6 @@ body {
     background: #04030F;
     border-image: linear-gradient(169.59deg, #3023AE -36.97%, #C86DD7 148.62%);    
     border-image-slice: 1;
-    cursor: pointer;
   }
   .buttonfield{
     flex:1;
