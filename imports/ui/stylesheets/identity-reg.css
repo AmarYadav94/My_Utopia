@@ -76,7 +76,7 @@ h1{
   letter-spacing: 1.5px;
   text-transform: uppercase;
   line-height: 14px;
-  color :#fff;
+  color :#aaa;
   background: transparent;
   border: 2px dashed #aaa;
 }
@@ -90,7 +90,7 @@ h1{
   letter-spacing: 1.5px;
   text-transform: uppercase;
   line-height: 14px;
-  color :#fff;
+  color :#aaa;
   background: transparent;
   border: 2px dashed #aaa;
   
@@ -98,6 +98,7 @@ h1{
 
 .row3 button:hover{
   border: 2px solid #C86DD7;
+  color: white;
   transition: 0.5s;
 }
 
