@@ -7,29 +7,45 @@ import { Template } from 'meteor/templating';
 import '../../../api/identity/methods';
 import Eos from "eosjs";
 
-eosConfig = {
-    chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473", // 32 byte (64 char) hex string
-    keyProvider: ['5KeNdWYxPbUpsLUa8QT64AbjTAQeHcZejcR6shHnNi1sESgxgm7','5Jg4m51EZNRpekRVfu27ThNQ1kMpBo27i9SYfpZk2fQ8dcch6ip'], // WIF string or array of keys..
-    httpEndpoint: 'https://jungle2.cryptolions.io:443',
-    expireInSeconds: 60,
-    broadcast: true,
-    verbose: false, // API activity
-    sign: true
-}
-eos = Eos(eosConfig)
+const network = {
+    protocol: "https", // Defaults to https
+    blockchain: "eos",
+    host: "jungle2.cryptolions.io",
+    port: 443,
+    chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473"
+  };
+const eosOptions = {
+    chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473"
+  };
+  
 
-
+var eosinstance={};
 Template.identity_reg.onCreated(function () {
 
     Meteor.subscribe('identity');
+    ScatterJS.scatter.connect('utopia').then((connected) => {
+        if (connected) {
+            if (ScatterJS.scatter.connect('utopia')) {
+                scatter = ScatterJS.scatter;
+                const requiredFields = { accounts: [network] };
+                const eos = scatter.eos(network, Eos, eosOptions);
+                if (scatter.identity) {
+                 eosinstance=eos;
+                } else {
+                    FlowRouter.go("/");
+                }
+            }
+        } else {
+            console.log("scatter not installed")
+        }
+    });
 });
 
 // Setup event handling.
 Template.identity_reg.events({
 
     'click .register': function (event) {
-        event.preventDefault()
-        console.log("instance---",eosinstance)       ;
+        event.preventDefault()    ;
         var firstname = $('#firstname').val();
         var midname = $('#midname').val();
         var lastname = $('#lastname').val();
@@ -37,7 +53,9 @@ Template.identity_reg.events({
         var phonenumber = $('#phonenumber').val();
         var email = $('#email').val();
         var username= localStorage.getItem("username")
-        eos.contract('identityreg1').then(identityreg1 => {
+        console.log("----",username);
+        eosinstance.contract('identityreg1').then(identityreg1 => {
+            console.log("----",eosinstance);
             identityreg1.addidentity(username,firstname,midname,lastname,dob,phonenumber,email,{authorization:username}).then((response)=>{
                 if(response){
                     FlowRouter.go("/reg-success");

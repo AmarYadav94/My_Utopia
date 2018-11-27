@@ -7,7 +7,7 @@ import ScatterEOS from "scatterjs-plugin-eosjs";
 import Eos from "eosjs";
 ScatterJS.plugins(new ScatterEOS());
 const network = {
-    protocol: "http", // Defaults to https
+    protocol: "https", // Defaults to https
     blockchain: "eos",
     host: "jungle2.cryptolions.io",
     port: 443,
@@ -29,11 +29,13 @@ Template.welcomePage.onCreated(function bodyOnCreated() {
                     if (scatter.identity) {
                         const acc = scatter.identity.accounts.find(x => x.blockchain === 'eos');
                         const account = acc.name;
-                        localStorage.setItem("loginstatus",JSON.stringify(true));                        
+                        localStorage.setItem("loginstatus",JSON.stringify(true)); 
+                        localStorage.setItem("username",account);                       
                         console.log("inside created----1",localStorage.getItem("loginstatus"));   ;
 
                     } else {
                         localStorage.setItem("loginstatus",JSON.stringify(false));
+                        localStorage.setItem("username","");
                         console.log("inside created----2",localStorage.getItem("loginstatus"));   ;
                     }
                 }
@@ -46,7 +48,7 @@ Template.welcomePage.onCreated(function bodyOnCreated() {
  
 Template.welcomePage.events({
     "click .optionBox1": function() {
-        FlowRouter.go("/identity-reg",{eosinstance :scatter});
+        FlowRouter.go("/identity-reg",{data:"scatter"});
       },
     'click .scatterloginlogout': function( event, instance ){
     if (!JSON.parse(localStorage.getItem("loginstatus"))) {
@@ -62,6 +64,7 @@ Template.welcomePage.events({
                 const account = acc.name;
                 console.log("acccount---",account)
                 localStorage.setItem("loginstatus",JSON.stringify(true));
+                localStorage.setItem("username",account);
             }).catch(error => {
                 console.error(error);
             });
@@ -71,6 +74,7 @@ Template.welcomePage.events({
             scatter.forgetIdentity().then(() => {
             localStorage.setItem("loginstatus",JSON.stringify(false));
             console.log("----",localStorage.getItem("loginstatus"));
+            localStorage.setItem("username","");
             console.log("logout");
         });
     }
