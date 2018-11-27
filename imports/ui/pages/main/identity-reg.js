@@ -8,37 +8,67 @@ import '../../../api/identity/methods';
 import ScatterJS from "scatterjs-core";
 import ScatterEOS from "scatterjs-plugin-eosjs";
 import Eos from "eosjs";
-ScatterJS.plugins(new ScatterEOS());
 
+const network = {
+    protocol: "https", // Defaults to https
+    blockchain: "eos",
+    host: "jungle2.cryptolions.io",
+    port: 443,
+    chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473"
+  };
+const eosOptions = {
+    chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473"
+  };
+  
+
+var eosinstance={};
 Template.identity_reg.onCreated(function () {
 
     Meteor.subscribe('identity');
+    ScatterJS.scatter.connect('utopia').then((connected) => {
+        if (connected) {
+            if (ScatterJS.scatter.connect('utopia')) {
+                scatter = ScatterJS.scatter;
+                const requiredFields = { accounts: [network] };
+                const eos = scatter.eos(network, Eos, eosOptions);
+                if (scatter.identity) {
+                 eosinstance=eos;
+                } else {
+                    FlowRouter.go("/");
+                }
+            }
+        } else {
+            console.log("scatter not installed")
+        }
+    });
 });
 
 // Setup event handling.
 Template.identity_reg.events({
 
     'click .register': function (event) {
-        event.preventDefault()
+        event.preventDefault()    ;
         var firstname = $('#firstname').val();
         var midname = $('#midname').val();
         var lastname = $('#lastname').val();
         var dob = $('#dob').val();
         var phonenumber = $('#phonenumber').val();
         var email = $('#email').val();
-        var username = localStorage.getItem("username")
-        eos.contract('identityreg1').then(identityreg1 => {
-            identityreg1.addidentity(username, firstname, midname, lastname, dob, phonenumber, email, { authorization: username }
-                , (err, res) => {
-                    if (err) {
-                        console.log("error ", err);
-                    }
-                    else {
-                        console.log("Result ", res);
-                    }
-                });
-        }
-        )
+        var username= localStorage.getItem("username")
+        console.log("----",username);
+        eosinstance.contract('identityreg1').then(identityreg1 => {
+            console.log("----",eosinstance);
+            identityreg1.addidentity(username,firstname,midname,lastname,dob,phonenumber,email,{authorization:username}).then((response)=>{
+                if(response){
+                    FlowRouter.go("/reg-success");
+                }else{
+                    alert("identity is not registered !!!!");;
+                }
+                
+            });
+          
+          })
     },
+
 });
 
