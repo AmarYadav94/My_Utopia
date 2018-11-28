@@ -9,5 +9,9 @@ Template.header.events({
     "click .logo": function(){
         console.log("logo was clikced");
         FlowRouter.go("/");
+    },
+    "click .identityText": function(){
+        console.log("identity text was clicked");
+        FlowRouter.go("/citizenship");
     }
 });
