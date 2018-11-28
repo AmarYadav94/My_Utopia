@@ -7,6 +7,8 @@ import "../../ui/layouts/body/body.js"
 import "../../ui/pages/main/proposal.js";
 import "../../ui/pages/main/Registered.js";
 import "../../ui/pages/main/citizenship.js"
+import "../../ui/pages/main/newproposal.js";
+
 FlowRouter.route('/', {
   name: 'welocomePage',
   action() {
@@ -38,5 +40,12 @@ FlowRouter.route('/citizenship', {
   name: "citizenship",
   action(){
     BlazeLayout.render('App_body', { main: 'citizenship'});
+  }
+});
+
+FlowRouter.route('/newproposal', {
+  name: "newproposal",
+  action(){
+    BlazeLayout.render('App_body', { main: 'App_newproposal'});
   }
 });
