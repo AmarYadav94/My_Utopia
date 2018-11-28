@@ -37,7 +37,6 @@
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  cursor: pointer;
 }
 .optionBox1 div {
   width: 318px;
@@ -56,12 +55,21 @@
   margin-left: 36px;
   background-image: url("/img/optionBox2.png");
 }
-.optionText {
+.optionText1 {
   font-family: Colfax Regular;
   font-size: 22px;
   line-height: 23px;
   text-transform: uppercase;
   color: #ffffff;
+  cursor: pointer;
+}
+.optionText2 {
+  font-family: Colfax Regular;
+  font-size: 22px;
+  line-height: 23px;
+  text-transform: uppercase;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .scatterlogin-button {

@@ -14,10 +14,23 @@ const network = {
     chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473"
   };
 const eosOptions = {
-    chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473"
-  };
-  
-var scatter = {};  
+  chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473"
+};
+
+
+
+eosConfig = {
+    chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473", // 32 byte (64 char) hex string
+    keyProvider: ['5KeNdWYxPbUpsLUa8QT64AbjTAQeHcZejcR6shHnNi1sESgxgm7'],
+    // WIF string or array of keys..
+    httpEndpoint: 'https://jungle2.cryptolions.io:443',
+    expireInSeconds: 60,
+    broadcast: true,
+    verbose: false, // API activity
+    sign: true
+}
+eos = Eos(eosConfig)
+
 
 Template.welcomePage.onCreated(function bodyOnCreated() {
         ScatterJS.scatter.connect('utopia').then((connected) => {
@@ -31,12 +44,14 @@ Template.welcomePage.onCreated(function bodyOnCreated() {
                         const account = acc.name;
                         localStorage.setItem("loginstatus",JSON.stringify(true)); 
                         localStorage.setItem("username",account);                       
-                        console.log("inside created----1",localStorage.getItem("loginstatus"));   ;
+                        console.log("inside created----1",localStorage.getItem("loginstatus"));
+                        document.getElementById("loginButton").innerHTML = "logout";
 
                     } else {
                         localStorage.setItem("loginstatus",JSON.stringify(false));
                         localStorage.setItem("username","");
-                        console.log("inside created----2",localStorage.getItem("loginstatus"));   ;
+                        console.log("inside created----2",localStorage.getItem("loginstatus"));
+                        document.getElementById("loginButton").innerHTML = "login";
                     }
                 }
             } else {
@@ -47,7 +62,7 @@ Template.welcomePage.onCreated(function bodyOnCreated() {
   });
  
 Template.welcomePage.events({
-    "click .optionBox1": function() {
+    "click .optionText1": function() {
         FlowRouter.go("/identity-reg",{data:"scatter"});
       },
     'click .scatterloginlogout': function( event, instance ){
@@ -61,19 +76,22 @@ Template.welcomePage.events({
             console.log("1-------------------",eos)
             scatter.getIdentity(requiredFields).then(() => {
                 const acc = scatter.identity.accounts.find(x => x.blockchain === 'eos');
-                const account = acc.name;
-                console.log("acccount---",account)
+                const account = acc.name
+                localStorage.setItem("username",account);
+                console.log("inlogin");
                 localStorage.setItem("loginstatus",JSON.stringify(true));
                 localStorage.setItem("username",account);
+                document.getElementById("loginButton").innerHTML = "logout";
             }).catch(error => {
                 console.error(error);
             });
         });
     } else {
         console.log("2-----------------")
-            scatter.forgetIdentity().then(() => {
+        ScatterJS.scatter.forgetIdentity().then(() => {
             localStorage.setItem("loginstatus",JSON.stringify(false));
             console.log("----",localStorage.getItem("loginstatus"));
+            document.getElementById("loginButton").innerHTML = "login";
             localStorage.setItem("username","");
             console.log("logout");
         });
@@ -81,3 +99,19 @@ Template.welcomePage.events({
     },
 })
 
+Template.welcomePage.events({
+      "click .optionText2":function(){
+        var username= localStorage.getItem("username");
+        eos.contract('identityreg1').then(identityreg1 => {
+          identityreg1.reqcitizen(username,{authorization:username}).then((response)=>{
+              if(response){
+                  console.log("hello--",response);
+              }else{
+                  alert("identity is not registered !!!!");;
+              }
+          });
+        
+        })
+        FlowRouter.go("/citizenship",{eosinstance :scatter});
+      }
+    })

@@ -7,16 +7,19 @@ import "../../ui/layouts/body/body.js"
 import "../../ui/pages/main/proposal.js";
 import "../../ui/pages/main/Registered.js";
 import "../../ui/pages/main/Voting.js";
+import "../../ui/pages/main/citizenship.js"
 FlowRouter.route('/', {
   name: 'welocomePage',
   action() {
     BlazeLayout.render('App_body', { main: 'welcomePage' });
   }
 });
-FlowRouter.route('/vote', {
+FlowRouter.route('/vote/:id', {
   name: 'Vote',
-  action() {
-    BlazeLayout.render('App_body', { main: 'Vote' });
+  action(params) {
+    var cont=params.id;
+    console.log("---",params.id);
+    BlazeLayout.render('App_body', { main: 'Vote' ,id:cont});
   }
 });
 
@@ -37,5 +40,11 @@ FlowRouter.route('/proposal', {
   name: "proposal-page",
   action(){
     BlazeLayout.render('App_body', { main: 'App_proposal'});
+  }
+});
+FlowRouter.route('/citizenship', {
+  name: "citizenship",
+  action(){
+    BlazeLayout.render('App_body', { main: 'citizenship'});
   }
 });

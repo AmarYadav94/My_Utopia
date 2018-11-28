@@ -58,7 +58,6 @@ input{
 }
 
 .all-proposals{
-    display: none;
     width: 100%;
 }
 
@@ -66,6 +65,7 @@ input{
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
 }
 
 .redo{

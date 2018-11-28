@@ -63,7 +63,6 @@ body {
     background: #04030F;
     border-image: linear-gradient(169.59deg, #3023AE -36.97%, #C86DD7 148.62%);    
     border-image-slice: 1;
-    cursor: pointer;
   }
   .buttonfield{
     flex:1;
@@ -77,10 +76,17 @@ body {
   }
   .text{
     flex: 1;
+
   }
-  .insidetext{
+  #insidetext{
     width: 370px;
     background: #04030F;
     border: 0px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 54px;
     border-bottom : 2px solid #FFFFFF;
+    text-align: center;
+    color:white;
   }

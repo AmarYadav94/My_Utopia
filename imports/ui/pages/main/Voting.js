@@ -19,7 +19,6 @@ const eosOptions = {
   
 
 Template.Vote.onCreated(async function () {
-    
    /*  document.getElementById("all-proposals").style.display = "block"; */
    ScatterJS.scatter.connect('utopia').then((connected) => {
     if (connected) {
@@ -35,14 +34,18 @@ Template.Vote.onCreated(async function () {
                 json: true,
             }).then((tabledata=>{
                 document.getElementById("proposal-group").innerHTML = "";
-                console.log("table data ", tabledata);                
-                for(var i = 0; i< tabledata.rows.length;i++){
-                    var can=tabledata.rows[i].proposal_options;
+                console.log("table data ", tabledata);  
+                var Id = FlowRouter.current().params.id; 
+                var row=tabledata.rows[Id]; 
+                for(var i = 0; i< row.proposal_options.length;i++){
+                    var can=row.proposal_options[i];
                     
-                    var desc = tabledata.rows[i].proposal_description;
+                    /* var desc = tabledata.rows[i].proposal_description; */
                     document.getElementById("proposal-group").innerHTML += 
-                    "<div class = 'redo'><div class= 'candidate'>"+can[0]+"</div><div class='rank'><input class='input'/></div><div class='submit'>"+"submit"+"</div></div>";
+                    "<div class = 'redo hover'><div class= 'candidate'>"+can+"</div><div class='rank'><input class='input'/></div></div>";
                 }
+                document.getElementById("proposal-group").innerHTML += 
+                "<button class='submit hover'>"+"submit"+"</button>"
             }));
           
         }
