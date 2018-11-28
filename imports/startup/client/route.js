@@ -6,6 +6,7 @@ import "../../ui/pages/main/identity-reg.js";
 import "../../ui/layouts/body/body.js"
 import "../../ui/pages/main/proposal.js";
 import "../../ui/pages/main/Registered.js";
+import "../../ui/pages/main/Voting.js";
 import "../../ui/pages/main/citizenship.js"
 import "../../ui/pages/main/newproposal.js";
 import "../../ui/pages/main/manager.js";
@@ -17,7 +18,14 @@ FlowRouter.route('/', {
     BlazeLayout.render('App_body', { main: 'welcomePage' });
   }
 });
-
+FlowRouter.route('/vote/:id', {
+  name: 'Vote',
+  action(params) {
+    var cont=params.id;
+    console.log("---",params.id);
+    BlazeLayout.render('App_body', { main: 'Vote' ,id:cont});
+  }
+});
 
 FlowRouter.route('/identity-reg', {
   name: 'identity-reg',

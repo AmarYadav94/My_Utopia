@@ -57,7 +57,6 @@ Template.identity_reg.onCreated(function () {
 
 // Setup event handling.
 Template.identity_reg.events({
-
     'click .register': function (event) {
         event.preventDefault();
         var firstname = $('#firstname').val();
