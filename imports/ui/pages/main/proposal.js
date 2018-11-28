@@ -27,12 +27,16 @@ Template.App_proposal.onRendered(async function(){
     });
     document.getElementById("proposal-group").innerHTML = "";
     console.log("table data after rendering", tabledata);
-    var id = 0;
+    var votebutton = "votebutton";
+    var resultbutton = "resultbutton";
     for(var i = 0; i< tabledata.rows.length;i++){
         var desc = tabledata.rows[i].proposal_description;
+        votebutton = votebutton+i;
+        resultbutton = resultbutton+i;
         document.getElementById("proposal-group").innerHTML += 
-        "<div class = 'redo'><p>"+desc+"</p><button class = 'vote-button' id = '"+id+"'>vote</button>"+"</div>";
-        id = id+1;
+        "<div class = 'redo'><p>"+desc+"</p><button class = 'vote-button' id = '"+votebutton+"'>vote</button>"
+        +"<button class = 'result-button' id = '"+resultbutton+"'>result</button>"+"</div>";
+        
     }
 })
 
@@ -40,6 +44,7 @@ Template.App_proposal.events({
     "click .new-proposal-button": function () {
         /* document.getElementById("form-section").style.display = "block";
         document.getElementById("all-proposals").style.display = "none"; */
+        FlowRouter.go("/newproposal");
     },
     "click .all-proposal-button": async function () {
         /* document.getElementById("form-section").style.display = "none";
@@ -93,8 +98,9 @@ Template.App_proposal.events({
             })
         }) */
     },
-    "click .vote-button": function(){
-       
+    "click .vote-button": function(event){
+        event.preventDefault();
+        console.log("id of vote button ", event.target.id);
         console.log("vote button was clicked");
         var buttons = document.getElementsByClassName("vote-button");
         for(var i=0;i<buttons.length;i++){
@@ -102,6 +108,10 @@ Template.App_proposal.events({
              FlowRouter.go("/vote/"+i);
         }
 
-    
+        
+    },
+    "click .result-button": function(event){
+        event.preventDefault();
+        console.log("id of result button ", event.target.id);
     }
 })
