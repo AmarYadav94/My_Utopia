@@ -43,11 +43,9 @@ Template.App_result.onRendered(async function(){
     for(var i=0;i<resultdata.rows.length;i++){
         var choices = resultdata.rows[i].choices
         console.log("choices: ", choices);
-        var k=0;
         for(var j=0;j<choices.length;j++){
             var value = choices[j];
-            result[j][value]+=1;
-            k++;
+            result[j][value-1]+=1;
         }
     }
 
