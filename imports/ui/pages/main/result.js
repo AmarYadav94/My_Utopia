@@ -26,6 +26,19 @@ Template.App_result.onRendered(async function(){
         json: true
     });
 
+    let candidatedata = await eos.getTableRows({
+        code: "voteproposal",
+        scope: "voteproposal",
+        table: "proposal11",
+        limit: "50",
+        json: true
+    });
+
+    var candidatelist = candidatedata.rows[0].proposal_options;
+
+
+    console.log(" candidatedata :", candidatelist);
+
     var length = resultdata.rows[0].choices.length;
 
     for(var i=0; i<length;i++){
@@ -40,21 +53,16 @@ Template.App_result.onRendered(async function(){
 
     for(var i=0;i<resultdata.rows.length;i++){
         var choices = resultdata.rows[i].choices
-        console.log("choices: ", choices);
         for(var j=0;j<choices.length;j++){
             var value = choices[j];
             result[j][value-1]+=1;
         }
     }
-
-    console.log("result array after calculating : ", result);
+    
     for(var i=0; i<result.length;i++){
-        console.log(" total votes for 1st position ", result[i][0]);
         var total = result[i][0];
-        var length = 30*total;
-        var width = length+"px";
-        console.log("width ",width);
-        document.getElementsByClassName("candidate")[i].style.width = width;
-
+        total = total+"votes";
+        document.getElementsByClassName("candidate")[i].innerHTML = total;
+        document.getElementsByTagName("label")[i].innerHTML = candidatelist[i];
     }
 });
