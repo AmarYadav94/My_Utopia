@@ -99,10 +99,16 @@ Template.App_proposal.events({
     "click .vote-button": function(event){
         event.preventDefault();
         console.log("id of vote button ", event.target.id);
+        var id = event.target.id;
+        id = id[id.length-1];
+        console.log("id: ", id);
         
     },
     "click .result-button": function(event){
         event.preventDefault();
         console.log("id of result button ", event.target.id);
+        var id = event.target.id;
+        id = id[id.length-1];
+        console.log("id: ", id);
     }
 })
