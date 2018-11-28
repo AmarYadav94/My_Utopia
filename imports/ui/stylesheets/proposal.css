@@ -73,14 +73,26 @@ input{
     height: 70px;
     background: white;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+}
+
+.redo p{
+    flex: 8;
+}
+
+.redo button{
+    flex: 1;
+    margin-right: 2%;
 }
 
 .vote-button{
     height: 50%;
     width: 100px;
-    margin-right: 3%;
+}
+
+.result-button{
+    height: 50%;
+    width: 100px;
 }
 
 .redo p{

@@ -25,12 +25,16 @@ Template.App_proposal.onRendered(async function(){
     });
     document.getElementById("proposal-group").innerHTML = "";
     console.log("table data after rendering", tabledata);
-    var id = 0;
+    var votebutton = "votebutton";
+    var resultbutton = "resultbutton";
     for(var i = 0; i< tabledata.rows.length;i++){
         var desc = tabledata.rows[i].proposal_description;
+        votebutton = votebutton+i;
+        resultbutton = resultbutton+i;
         document.getElementById("proposal-group").innerHTML += 
-        "<div class = 'redo'><p>"+desc+"</p><button class = 'vote-button' id = '"+id+"'>vote</button>"+"</div>";
-        id = id+1;
+        "<div class = 'redo'><p>"+desc+"</p><button class = 'vote-button' id = '"+votebutton+"'>vote</button>"
+        +"<button class = 'result-button' id = '"+resultbutton+"'>result</button>"+"</div>";
+        
     }
 })
 
@@ -92,11 +96,19 @@ Template.App_proposal.events({
             })
         }) */
     },
-    "click .vote-button": function(){
-        console.log("vote button was clicked");
-        var buttons = document.getElementsByClassName("vote-button");
-        for(var i=0;i<buttons.length;i++){
-            console.log("id of vote button ", buttons[i].id);
-        }
+    "click .vote-button": function(event){
+        event.preventDefault();
+        console.log("id of vote button ", event.target.id);
+        var id = event.target.id;
+        id = id[id.length-1];
+        console.log("id: ", id);
+        
+    },
+    "click .result-button": function(event){
+        event.preventDefault();
+        console.log("id of result button ", event.target.id);
+        var id = event.target.id;
+        id = id[id.length-1];
+        console.log("id: ", id);
     }
 })

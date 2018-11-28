@@ -19,11 +19,12 @@
     justify-content: center;
     align-content: center;
     height: 48px;
+    text-transform: uppercase;
 }
 .manager-below-section{
     width: 100%;
-    margin-top: 2%;
-    height:150px;   
+    margin-top: 3%;
+    height:100px;   
 }
 .manager-all-proposals{
     width: 100%;
@@ -37,10 +38,12 @@
 .delete-button{
     height: 50%;
     width: 100px;
+    margin-right: 3%;
 }
 .declare-button{
     height: 50%;
-    width: 150px;
+    width: 200px;
+    margin-right: 3%;
 }
 
 .manager-redo{
@@ -51,4 +54,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.manager-redo p{
+    flex: 8;
+}
+
+.manager-redo button{
+    flex: 1;
+    margin-right: 2%;
+}
+
+.manager-delete-button{
+    height: 50%;
+    width: 100px;
+}
+
+.manager-declare-button{
+    height: 50%;
+    width: 100px;
+}
+
+.manager-redo p{
+    margin-left: 3%;
 }

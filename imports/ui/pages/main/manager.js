@@ -31,6 +31,20 @@ Template.App_manager.onRendered(async function(){
         var desc = tabledata.rows[i].proposal_description;
         document.getElementById("manager-proposal-group").innerHTML += 
         "<div class = 'manager-redo'><p>"+desc+"</p><button class = 'delete-button'>delete</button><button class = 'declare-button'>declare winner</button>"+"</div>";
-        id = id+1;
     }
+})
+
+Template.App_manager.events({
+    "click #userDetails":function(){
+        console.log("userDetails");
+        document.getElementById("manager-proposal-group").innerHTML = 
+        "<div class = 'manager-redo'><p>"+localStorage.getItem("username")+"</p><button class = 'delete-button'>approved</button><button class = 'declare-button'>disapproved</button>"+"</div>";
+    }
+})
+
+Template.App_manager.events({
+    "click #proposalDetails":function(){
+        console.log("abcdef");
+        
+        }
 })
