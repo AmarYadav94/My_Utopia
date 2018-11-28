@@ -12,5 +12,9 @@ Template.header.events({
     },
     "click .identityText": function(){
         console.log("identity text was clicked");
+    },
+    "click .managerText": function(){
+        console.log("manager");
+        FlowRouter.go("/manager");
     }
 });
