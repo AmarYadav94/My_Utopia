@@ -75,6 +75,7 @@ input{
     background: white;
     display: flex;
     align-items: center;
+    color: black;
 }
 
 .redo p{

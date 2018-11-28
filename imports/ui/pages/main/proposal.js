@@ -101,17 +101,16 @@ Template.App_proposal.events({
     "click .vote-button": function(event){
         event.preventDefault();
         console.log("id of vote button ", event.target.id);
-        console.log("vote button was clicked");
-        var buttons = document.getElementsByClassName("vote-button");
-        for(var i=0;i<buttons.length;i++){
-            console.log("id of vote button ", buttons[i].id);
-             FlowRouter.go("/vote/"+i);
-        }
-
+        var id = event.target.id;
+        id = id[id.length-1];      
         
+        FlowRouter.go("/vote/"+id);        
     },
     "click .result-button": function(event){
         event.preventDefault();
         console.log("id of result button ", event.target.id);
+        var id = event.target.id;
+        id = id[id.length-1];
+        console.log("id: ", id);
     }
 })

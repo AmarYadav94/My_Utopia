@@ -47,22 +47,11 @@ text-align: center;
 .submit:hover{
     background: linear-gradient(169.59deg, #3023AE -36.97%, #C86DD7 148.62%);
 }
-.button-group{
-    display: flex;
-    justify-content: space-around;
-}
-.redo:hover{
+
+.redovote:hover{
     background: linear-gradient(169.59deg, #3023AE -36.97%, #C86DD7 148.62%);
 }
-.new-proposal-button{
-    width: 255px;
-    height: 50px;
-    border: 0;
-    background-image: linear-gradient(to bottom, #3023AE, #C86DD7);
-    color: white;
-    text-transform: uppercase;
-    font-weight: bold;
-}
+
 
 .input{
     text-align: left;
@@ -72,23 +61,23 @@ text-align: center;
     border-bottom: 2px solid white;
     color: white;
 }
-.below-section{
+.belowvote-section{
     width: 100%;
     margin-top: 5%;
 }
-.all-proposals{
+.allvote-proposals{
   /*   display: none; */
   display: block;
     width: 100%;
 }
 
-.proposal-group{
+.proposalvote-group{
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
-.redo{
+.redovote{
     margin-top: 10px;
     height: 70px;
     width: 100%;
