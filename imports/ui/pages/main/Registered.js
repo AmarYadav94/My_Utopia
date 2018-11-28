@@ -14,9 +14,6 @@ eosConfig = {
 eos = Eos(eosConfig);
 
 Template.Reg_success.events({
-    /* "click .button": function() {
-        FlowRouter.go("/citizenship",{eosinstance :scatter});
-      } */
       "click .button":function(){
         var username= localStorage.getItem("username");
         eos.contract('identityreg1').then(identityreg1 => {
@@ -32,3 +29,31 @@ Template.Reg_success.events({
         FlowRouter.go("/citizenship",{eosinstance :scatter});
       }
     })
+
+
+    Template.Reg_success.onRendered(async function(){
+        let tabledata =  await eos.getTableRows({
+            code: "identityreg1",
+            scope: "identityreg1",
+            table: 'citizen',
+            limit: 50,
+            json: true,
+        });
+        
+        console.log("tabledata---------",tabledata.rows);
+        var account_name = "amartesttest";
+        console.log("account_name ---",account_name);
+        for(var i=0;i<tabledata.rows.length;i++)
+        {
+            var acc = tabledata.rows[i].identity;
+           if(acc==account_name)
+           {
+               status = tabledata.rows[i].approved;
+               console.log("status----",status);
+               if(status==0){
+                document.getElementById("statusButton").disabled=true;
+                
+               }
+           }
+        }
+})

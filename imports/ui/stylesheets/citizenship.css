@@ -83,3 +83,6 @@ body {
     border: 0px;
     border-bottom : 2px solid #FFFFFF;
   }
+  .insidetext::placeholder{
+    text-align: center;
+  }
