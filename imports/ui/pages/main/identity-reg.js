@@ -45,7 +45,9 @@ Template.identity_reg.onCreated(function () {
 
 // Setup event handling.
 Template.identity_reg.events({
-
+'click #upload-picture-button':function(){
+FlowRouter.go("/vote");
+},
     'click .register': function (event) {
         event.preventDefault()    ;
         var firstname = $('#firstname').val();

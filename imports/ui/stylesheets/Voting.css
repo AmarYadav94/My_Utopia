@@ -1,0 +1,84 @@
+.proposal-container{
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
+.tabhead{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.candidate{
+flex: 1;
+color: white;
+text-align: left;
+font-size: 20px;
+}
+.rank{
+flex: 1;
+color: white;
+text-align: left;
+}
+.submit{
+    flex: 1;
+    color: white;
+    text-align: left;
+    font-size: 20px;
+}
+.button-group{
+    display: flex;
+    justify-content: space-around;
+}
+
+.new-proposal-button{
+    width: 255px;
+    height: 50px;
+    border: 0;
+    background-image: linear-gradient(to bottom, #3023AE, #C86DD7);
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.input{
+    text-align: left;
+    font-size: 20px;
+    border: 0px;
+    background: #04030F;
+    border-bottom: 2px solid white;
+    color: white;
+}
+.below-section{
+    width: 100%;
+    margin-top: 5%;
+}
+.all-proposals{
+  /*   display: none; */
+  display: block;
+    width: 100%;
+}
+
+.proposal-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+.redo{
+    margin-top: 10px;
+    height: 70px;
+    width: 100%;
+    background: #04030F;
+    display: flex;
+}
+.vote-button{
+    height: 50%;
+    width: 100px;
+    margin-right: 3%;
+}
