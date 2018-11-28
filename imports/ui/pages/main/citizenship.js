@@ -36,7 +36,7 @@ Template.citizenship.onRendered(async function(){
             console.log("status----",status);
             if(status==1){
              document.getElementById("insidetext").innerHTML="approved"; 
-             document.getElementById("heading-status").innerHTML="congrats !!! You are now a citizen of utopia!!!";           
+             document.getElementById("heading-status").innerHTML="You are now a citizen of utopia!!!";           
             }
            }
            

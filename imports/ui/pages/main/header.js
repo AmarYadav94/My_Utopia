@@ -12,6 +12,5 @@ Template.header.events({
     },
     "click .identityText": function(){
         console.log("identity text was clicked");
-        FlowRouter.go("/citizenship");
     }
 });

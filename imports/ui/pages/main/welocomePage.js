@@ -44,12 +44,14 @@ Template.welcomePage.onCreated(function bodyOnCreated() {
                         const account = acc.name;
                         localStorage.setItem("loginstatus",JSON.stringify(true)); 
                         localStorage.setItem("username",account);                       
-                        console.log("inside created----1",localStorage.getItem("loginstatus"));   ;
+                        console.log("inside created----1",localStorage.getItem("loginstatus"));
+                        document.getElementById("loginButton").innerHTML = "logout";
 
                     } else {
                         localStorage.setItem("loginstatus",JSON.stringify(false));
                         localStorage.setItem("username","");
-                        console.log("inside created----2",localStorage.getItem("loginstatus"));   ;
+                        console.log("inside created----2",localStorage.getItem("loginstatus"));
+                        document.getElementById("loginButton").innerHTML = "login";
                     }
                 }
             } else {
@@ -79,6 +81,7 @@ Template.welcomePage.events({
                 console.log("inlogin");
                 localStorage.setItem("loginstatus",JSON.stringify(true));
                 localStorage.setItem("username",account);
+                document.getElementById("loginButton").innerHTML = "logout";
             }).catch(error => {
                 console.error(error);
             });
@@ -88,6 +91,7 @@ Template.welcomePage.events({
         ScatterJS.scatter.forgetIdentity().then(() => {
             localStorage.setItem("loginstatus",JSON.stringify(false));
             console.log("----",localStorage.getItem("loginstatus"));
+            document.getElementById("loginButton").innerHTML = "login";
             localStorage.setItem("username","");
             console.log("logout");
         });
