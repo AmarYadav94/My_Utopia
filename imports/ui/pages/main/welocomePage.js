@@ -62,7 +62,7 @@ Template.welcomePage.onCreated(function bodyOnCreated() {
   });
  
 Template.welcomePage.events({
-    "click .optionBox1": function() {
+    "click .optionText1": function() {
         FlowRouter.go("/identity-reg",{data:"scatter"});
       },
     'click .scatterloginlogout': function( event, instance ){
@@ -100,7 +100,7 @@ Template.welcomePage.events({
 })
 
 Template.welcomePage.events({
-      "click .optionBox2":function(){
+      "click .optionText2":function(){
         var username= localStorage.getItem("username");
         eos.contract('identityreg1').then(identityreg1 => {
           identityreg1.reqcitizen(username,{authorization:username}).then((response)=>{

@@ -81,7 +81,7 @@ Template.identity_reg.events({
 
         })
     },
-    "click #firstname":function(){
+    /* "click #firstname":function(){
         document.getElementById("progressBar").style.width="16%";
     },
     "click #midname":function(){
@@ -98,7 +98,7 @@ Template.identity_reg.events({
     },
     "click #email":function(){
         document.getElementById("progressBar").style.width="100%";
-    }
+    } */
 
 });
 
