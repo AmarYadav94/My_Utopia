@@ -111,6 +111,6 @@ Template.App_proposal.events({
         console.log("id of result button ", event.target.id);
         var id = event.target.id;
         id = id[id.length-1];
-        console.log("id: ", id);
+        FlowRouter.go("/result/"+id);
     }
 })

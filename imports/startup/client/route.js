@@ -9,6 +9,7 @@ import "../../ui/pages/main/Registered.js";
 import "../../ui/pages/main/Voting.js";
 import "../../ui/pages/main/citizenship.js"
 import "../../ui/pages/main/newproposal.js";
+import "../../ui/pages/main/manager.js";
 import "../../ui/pages/main/result.js";
 
 FlowRouter.route('/', {
@@ -59,9 +60,17 @@ FlowRouter.route('/newproposal', {
   }
 });
 
-FlowRouter.route('/result', {
-  name: "result",
+FlowRouter.route('/manager', {
+  name: "manager",
   action(){
-    BlazeLayout.render('App_body', { main: 'App_result'});
+    BlazeLayout.render('App_body', { main: 'App_manager'});
+  }
+});
+
+FlowRouter.route('/result/:id', {
+  name: "result",
+  action(params){
+    var cont = params.id
+    BlazeLayout.render('App_body', { main: 'App_result', id:cont});
   }
 });
