@@ -30,8 +30,7 @@ Template.citizenship.onRendered(async function(){
             var acc = tabledata.rows[i].identity;
            if(acc==account_name)
            {
-               status = tabledata.rows[i].approved;
-               console.log("status----",status);
+            document.getElementById("heading-status").innerHTML="You have already applied for citizenship"; 
            }
         }
 })

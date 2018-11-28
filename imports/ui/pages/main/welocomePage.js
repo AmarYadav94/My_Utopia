@@ -112,7 +112,7 @@ Template.welcomePage.events({
       }
     })
 
-    Template.welcomePage.onRendered(async function(){
+    /* Template.welcomePage.onRendered(async function(){
         let tabledata =  await eos.getTableRows({
             code: "identityreg1",
             scope: "identityreg1",
@@ -131,12 +131,12 @@ Template.welcomePage.events({
            {
                status = tabledata.rows[i].approved;
                console.log("status----",status);
-               if(status==1){
+               if(status==0){
                 document.getElementById("statusButton").disabled = true;
                 
                }
            }
         }
-})
+}) */
 
 

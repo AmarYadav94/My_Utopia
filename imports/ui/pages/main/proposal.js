@@ -15,15 +15,34 @@ eosConfig = {
 }
 const eos = Eos(eosConfig);
 
+Template.App_proposal.onRendered(async function(){
+    let tabledata = await eos.getTableRows({
+        code: "voteproposal",
+        scope: "voteproposal",
+        table: 'proposal13',
+        limit: 50,
+        json: true,
+    });
+    document.getElementById("proposal-group").innerHTML = "";
+    console.log("table data after rendering", tabledata);
+    var id = 0;
+    for(var i = 0; i< tabledata.rows.length;i++){
+        var desc = tabledata.rows[i].proposal_description;
+        document.getElementById("proposal-group").innerHTML += 
+        "<div class = 'redo'><p>"+desc+"</p><button class = 'vote-button' id = '"+id+"'>vote</button>"+"</div>";
+        id = id+1;
+    }
+})
+
 Template.App_proposal.events({
     "click .new-proposal-button": function () {
-        document.getElementById("form-section").style.display = "block";
-        document.getElementById("all-proposals").style.display = "none";
+        /* document.getElementById("form-section").style.display = "block";
+        document.getElementById("all-proposals").style.display = "none"; */
     },
     "click .all-proposal-button": async function () {
-        document.getElementById("form-section").style.display = "none";
-        document.getElementById("all-proposals").style.display = "block";
-        let tabledata = await eos.getTableRows({
+        /* document.getElementById("form-section").style.display = "none";
+        document.getElementById("all-proposals").style.display = "block"; */
+        /* let tabledata = await eos.getTableRows({
             code: "voteproposal",
             scope: "voteproposal",
             table: 'proposal13',
@@ -32,24 +51,26 @@ Template.App_proposal.events({
         });
         document.getElementById("proposal-group").innerHTML = "";
         console.log("table data ", tabledata);
+        var id = 0;
         for(var i = 0; i< tabledata.rows.length;i++){
             var desc = tabledata.rows[i].proposal_description;
             document.getElementById("proposal-group").innerHTML += 
-            "<div class = 'redo'><p>"+desc+"</p><button class = 'vote-button'>vote</button>"+"</div>";
-        }
+            "<div class = 'redo'><p>"+desc+"</p><button class = 'vote-button' id = '"+id+"'>vote</button>"+"</div>";
+            id = id+1;
+        } */
         
     },
     "click #options": function () {
-        var boxName = "textbox" + count;
+        /* var boxName = "textbox" + count;
         var options = "Option";
         document.getElementById("form-group").innerHTML += "<input type = 'text' placeholder = '"+ options +"' id = '"+boxName+"'/>"
         count += 1;
-        
+         */
         /* '<input type="text" id="' + boxName + '" "  />'; */
     },
     "click #create-proposal": function () {
 
-        var proposal = $("#proposal").val();
+        /* var proposal = $("#proposal").val();
         var duration = parseInt($("#duration").val());
         var noofwinners = parseInt($("#noofwinners").val());
         var options = [];
@@ -68,9 +89,15 @@ Template.App_proposal.events({
                     console.log("Result ", res);
                 }
             })
-        })
+        }) */
     },
     "click .vote-button": function(){
         console.log("vote button was clicked");
+        var buttons = document.getElementsByClassName("vote-button");
+        for(var i=0;i<buttons.length;i++){
+            console.log("id of vote button ", buttons[i].id);
+        }
+
+    
     }
 })
