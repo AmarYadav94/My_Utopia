@@ -1,6 +1,8 @@
 import "./proposal.html"
 import "../../stylesheets/proposal.css";
 import Eos from "eosjs";
+import { Template } from 'meteor/templating';
+import { Meteor } from 'meteor/meteor';
 var count = 0;
 
 eosConfig = {
@@ -100,9 +102,9 @@ Template.App_proposal.events({
         event.preventDefault();
         console.log("id of vote button ", event.target.id);
         var id = event.target.id;
-        id = id[id.length-1];
-        console.log("id: ", id);
+        id = id[id.length-1];      
         
+        FlowRouter.go("/vote/"+id);        
     },
     "click .result-button": function(event){
         event.preventDefault();
