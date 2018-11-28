@@ -75,7 +75,7 @@ Template.welcomePage.events({
             scatter.getIdentity(requiredFields).then(() => {
                 const acc = scatter.identity.accounts.find(x => x.blockchain === 'eos');
                 const account = acc.name
-                console.log("account ",account);
+                localStorage.setItem("username",account);
                 console.log("inlogin");
                 localStorage.setItem("loginstatus",JSON.stringify(true));
                 localStorage.setItem("username",account);
@@ -111,32 +111,3 @@ Template.welcomePage.events({
         FlowRouter.go("/citizenship",{eosinstance :scatter});
       }
     })
-
-    /* Template.welcomePage.onRendered(async function(){
-        let tabledata =  await eos.getTableRows({
-            code: "identityreg1",
-            scope: "identityreg1",
-            table: 'citizen',
-            limit: 50,
-            json: true,
-        });
-        
-        console.log("tabledata---------",tabledata.rows);
-        var account_name = "amartesttest";
-        console.log("account_name ---",account_name);
-        for(var i=0;i<tabledata.rows.length;i++)
-        {
-            var acc = tabledata.rows[i].identity;
-           if(acc==account_name)
-           {
-               status = tabledata.rows[i].approved;
-               console.log("status----",status);
-               if(status==0){
-                document.getElementById("statusButton").disabled = true;
-                
-               }
-           }
-        }
-}) */
-
-

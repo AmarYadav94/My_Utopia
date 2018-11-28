@@ -76,13 +76,17 @@ body {
   }
   .text{
     flex: 1;
+
   }
-  .insidetext{
+  #insidetext{
     width: 370px;
     background: #04030F;
     border: 0px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 54px;
     border-bottom : 2px solid #FFFFFF;
-  }
-  .insidetext::placeholder{
     text-align: center;
+    color:white;
   }

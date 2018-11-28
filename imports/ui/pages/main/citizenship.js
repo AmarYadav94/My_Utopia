@@ -23,7 +23,7 @@ Template.citizenship.onRendered(async function(){
         });
         
         console.log("tabledata---------",tabledata.rows);
-        var account_name = "amartesttest";
+        var account_name=localStorage.getItem("username");
         console.log("account_name ---",account_name);
         for(var i=0;i<tabledata.rows.length;i++)
         {
@@ -31,6 +31,14 @@ Template.citizenship.onRendered(async function(){
            if(acc==account_name)
            {
             document.getElementById("heading-status").innerHTML="You have already applied for citizenship"; 
+
+            status = tabledata.rows[i].approved;
+            console.log("status----",status);
+            if(status==1){
+             document.getElementById("insidetext").innerHTML="approved"; 
+             document.getElementById("heading-status").innerHTML="congrats !!! You are now a citizen of utopia!!!";           
+            }
            }
+           
         }
 })
