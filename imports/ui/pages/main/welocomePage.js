@@ -7,7 +7,7 @@ import ScatterEOS from "scatterjs-plugin-eosjs";
 import Eos from "eosjs";
 ScatterJS.plugins(new ScatterEOS());
 const network = {
-    protocol: "http", // Defaults to https
+    protocol: "https", // Defaults to https
     blockchain: "eos",
     host: "jungle2.cryptolions.io",
     port: 443,
@@ -17,11 +17,36 @@ const eosOptions = {
   chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473"
 };
 
+Template.welcomePage.onCreated(function bodyOnCreated() {
+        ScatterJS.scatter.connect('utopia').then((connected) => {
+            if (connected) {
+                if (ScatterJS.scatter.connect('utopia')) {
+                    scatter = ScatterJS.scatter;
+                    const requiredFields = { accounts: [network] };
+                    const eos = scatter.eos(network, Eos, eosOptions);
+                    if (scatter.identity) {
+                        const acc = scatter.identity.accounts.find(x => x.blockchain === 'eos');
+                        const account = acc.name;
+                        localStorage.setItem("loginstatus",JSON.stringify(true)); 
+                        localStorage.setItem("username",account);                       
+                        console.log("inside created----1",localStorage.getItem("loginstatus"));   ;
 
-var scatter = {};
+                    } else {
+                        localStorage.setItem("loginstatus",JSON.stringify(false));
+                        localStorage.setItem("username","");
+                        console.log("inside created----2",localStorage.getItem("loginstatus"));   ;
+                    }
+                }
+            } else {
+                console.log("scatter not installed")
+            }
+        })
+   
+  });
+ 
 Template.welcomePage.events({
     "click .optionBox1": function() {
-        FlowRouter.go("/identity-reg",{eosinstance :scatter});
+        FlowRouter.go("/identity-reg",{data:"scatter"});
       },
     'click .scatterloginlogout': function( event, instance ){
     if (!JSON.parse(localStorage.getItem("loginstatus"))) {
@@ -38,8 +63,6 @@ Template.welcomePage.events({
                 console.log("account ",account);
                 console.log("inlogin");
                 localStorage.setItem("loginstatus",JSON.stringify(true));
-                localStorage.setItem("loginButton","logout");
-                document.getElementById("loginButton").innerHTML =localStorage.getItem("loginButton");
                 localStorage.setItem("username",account);
             }).catch(error => {
                 console.error(error);
@@ -49,9 +72,8 @@ Template.welcomePage.events({
         console.log("2-----------------")
         ScatterJS.scatter.forgetIdentity().then(() => {
             localStorage.setItem("loginstatus",JSON.stringify(false));
-            localStorage.setItem("loginButton","login");
-            document.getElementById("loginButton").innerHTML =localStorage.getItem("loginButton")
-            localStorage.removeItem("username");
+            console.log("----",localStorage.getItem("loginstatus"));
+            localStorage.setItem("username","");
             console.log("logout");
         });
     }
