@@ -6,3 +6,10 @@
     margin-top: 5%;
     color: white;
 }
+
+.candidate{
+    margin-top: 10px;
+    width: 0px;
+    height: 10px;
+    background: red;
+}
