@@ -58,9 +58,11 @@ FlowRouter.route('/manager', {
     BlazeLayout.render('App_body', { main: 'App_manager'});
   }
 });
-FlowRouter.route('/result', {
+
+FlowRouter.route('/result/:id', {
   name: "result",
-  action(){
-    BlazeLayout.render('App_body', { main: 'App_result'});
+  action(params){
+    var cont = params.id
+    BlazeLayout.render('App_body', { main: 'App_result', id:cont});
   }
 });
