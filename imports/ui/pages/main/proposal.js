@@ -32,10 +32,12 @@ Template.App_proposal.events({
         });
         document.getElementById("proposal-group").innerHTML = "";
         console.log("table data ", tabledata);
+        var id = 0;
         for(var i = 0; i< tabledata.rows.length;i++){
             var desc = tabledata.rows[i].proposal_description;
             document.getElementById("proposal-group").innerHTML += 
-            "<div class = 'redo'><p>"+desc+"</p><button class = 'vote-button'>vote</button>"+"</div>";
+            "<div class = 'redo'><p>"+desc+"</p><button class = 'vote-button' id = '"+id+"'>vote</button>"+"</div>";
+            id = id+1;
         }
         
     },
@@ -72,5 +74,9 @@ Template.App_proposal.events({
     },
     "click .vote-button": function(){
         console.log("vote button was clicked");
+        var buttons = document.getElementsByClassName("vote-button");
+        for(var i=0;i<buttons.length;i++){
+            console.log("id of vote button ", buttons[i].id);
+        }
     }
 })

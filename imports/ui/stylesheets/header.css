@@ -17,6 +17,7 @@
   height: 48px;
   background-image: url("/img/utopiaLogo.png");
   background-size: 100% 100%;
+  cursor: pointer;
 }
 .identitySection {
   flex: 4;
@@ -34,19 +35,7 @@
   color: #ffffff;
   margin-right: 5%;
 }
-.identitySection .progress {
-  width: 100px;
-  height: 8px;
-  background: #3023AE;
-  border-radius: 6px;
-}
 
-.progressBar{
-  width:0%;
-  height:100%;
-  background: #C86DD7;
-  border-radius: 6px;
-}
 
 .headLineBoundary{
   max-width: 100%;
@@ -56,40 +45,9 @@
   top: 160px;
   background: #FFFFFF;
   opacity: 0.25;
-  } 
+} 
 
-/* .headSection {
-  margin-bottom: 3%;
-  background: #04030f;
-}
-/* .logo {
-    max-width: 90px;
-    height: 30px;
-    margin-left: 3%;
-    background-image: url("/img/logo.png");
-    background-repeat: no-repeat;
-  } */
-/* .utopiaLogoFlex {
-  display: flex;
-  margin-top: 2%;
-}
-
-.utopiaLogo {
-  flex: 1;
-  display: flex;
-  margin-left:3%;
-  justify-content: flex-start;
-  align-content: center;
-  color: white;
-}
-.utopiaLogo div {
-  width: 140px;
-  height: 48px;
-  background-image: url("/img/utopiaLogo.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-.identityText {
+.proposal{
   font-family: Colfax Black;
   line-height: 19px;
   font-size: 18px;
@@ -97,7 +55,7 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #ffffff;
-  display:flex;
-  align-items: center;
-} */
+  margin-right: 5%;
+  cursor: pointer;
+}
 
