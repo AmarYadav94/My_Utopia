@@ -19,7 +19,7 @@ Template.App_proposal.onRendered(async function(){
     let tabledata = await eos.getTableRows({
         code: "voteproposal",
         scope: "voteproposal",
-        table: 'proposal13',
+        table: 'proposal11',
         limit: 50,
         json: true,
     });
@@ -38,6 +38,7 @@ Template.App_proposal.events({
     "click .new-proposal-button": function () {
         /* document.getElementById("form-section").style.display = "block";
         document.getElementById("all-proposals").style.display = "none"; */
+        FlowRouter.go("/newproposal");
     },
     "click .all-proposal-button": async function () {
         /* document.getElementById("form-section").style.display = "none";
@@ -97,7 +98,5 @@ Template.App_proposal.events({
         for(var i=0;i<buttons.length;i++){
             console.log("id of vote button ", buttons[i].id);
         }
-
-    
     }
 })

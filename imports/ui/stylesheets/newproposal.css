@@ -1,11 +1,11 @@
-.proposal-container{
+.new-proposal-container{
     max-width: 1140px;
     width: 90%;
     margin: 5% auto 0 auto;
     color: white;
 }
 
-.proposal-container h1{
+.new-proposal-container h1{
     text-align: left;
     font-family: Colfax Medium;
     letter-spacing: 1px;
