@@ -40,7 +40,7 @@ Template.Vote.onCreated(async function () {
                     var can=row.proposal_options[i];
                     titledata=row.proposal_description;
                     document.getElementById("proposal-group").innerHTML += 
-                    "<div class = 'redovote hover'><div class= 'candidate'>"+can+"</div><div class='rank'><input class='input'/></div></div>";
+                    "<div class = 'redovote hover'><div class= 'candidatevote'>"+can+"</div><div class='rank'><input class='input'/></div></div>";
                 }
                 document.getElementById("proposal-group").innerHTML += 
                 "<button class='submit hover'>"+"submit"+"</button>"
