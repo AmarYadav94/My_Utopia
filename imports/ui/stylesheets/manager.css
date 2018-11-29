@@ -47,21 +47,30 @@
     height: 50%;
     width: 100px;
     margin-right: 3%;
+    border:0px;
+    font-weight: bold;
     cursor: pointer;
+    
 }
 .delete-button:hover{
     background:red;
-    transition: 0.5s;
+    color:white;
+    transition: 0.25s;
+    opacity:0.75;
 }
 .declare-button{
     height: 50%;
     width: 200px;
     margin-right: 3%;
-    cursor:pointer;
+    border:0px;
+    font-weight: bold;
+    cursor: pointer;
 }
 .declare-button:hover{
-    background: green;
-    transition: 0.5s;
+    background:green;
+    color:white;
+    transition: 0.25s;
+    opacity:0.75;
 }
 
 .manager-redo{
@@ -109,21 +118,29 @@
     height: 50%;
     width: 100px;
     margin-right: 3%;
+    border:0px;
+    font-weight: bold;
     cursor: pointer;
 }
 .approved-button:hover{
-    background: green;
-    transition: 0.5s;
+    background:green;
+    color:white;
+    transition: 0.25s;
+    opacity:0.75;
 }
 .disapproved-button{
     height: 50%;
     width: 200px;
     margin-right: 3%;
+    border:0px;
+    font-weight: bold;
     cursor: pointer;
 }
 .disapproved-button:hover{
-    background: red;
-    transition:0.5s;
+    background:red;
+    color:white;
+    transition: 0.25s;
+    opacity:0.75;
 }
 
 .manager-user-redo{
