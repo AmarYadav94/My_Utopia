@@ -32,8 +32,8 @@ Template.App_proposal.onRendered(async function () {
         var desc = tabledata.rows[i].proposal_description;
         var votebutton = "votebutton";
         var resultbutton = "resultbutton";
-        votebutton = votebutton + i;
-        resultbutton = resultbutton + i;
+        votebutton = votebutton + tabledata.rows[i].id;
+        resultbutton = resultbutton + tabledata.rows[i].id;
         document.getElementById("proposal-group").innerHTML +=
             "<div class = 'redo'><p>" + desc + "</p><button class = 'vote-button' id = '" + votebutton + "'>vote</button>"
             + "<button class = 'result-button' id = '" + resultbutton + "'>result</button>" + "</div>";
