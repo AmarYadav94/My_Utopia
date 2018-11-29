@@ -15,3 +15,31 @@
     color: white;
     font-family: Colfax Medium;
 }
+
+#proposal-result{
+    display: flex;
+    justify-content: center;
+}
+
+#proposal-result-name{
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    margin-right: 5%;
+}
+
+#proposal-result-votes{
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 5%;
+}
+
+.ep{
+    text-align: center;
+    border: 1px solid white;
+    width: 30%;
+}
+
