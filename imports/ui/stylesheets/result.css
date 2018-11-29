@@ -9,7 +9,15 @@
 
 .candidate{
     margin-top: 10px;
+    margin-bottom: 20px;
     width: 0px;
     height: 10px;
-    background: red;
+    color: white;
+    font-family: Colfax Medium;
+}
+
+.result-container label{
+    color: white;
+    font-family: Colfax Medium;
+    margin-top: 10px;
 }
