@@ -14,16 +14,19 @@ const network = {
 const eosOptions = {
     chainId: "e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473"
   };
-  var titledata="title23";   
+  
+  var eosinstance;
+  var row;
+  var propid;
 Template.Vote.onCreated(async function () {
-     
-    console.log("------instance",Template.Vote.helpers);
+    
    ScatterJS.scatter.connect('utopia').then((connected) => {
     if (connected) {
         if (ScatterJS.scatter.connect('utopia')) {
             scatter = ScatterJS.scatter;
             const requiredFields = { accounts: [network] };
             const eos = scatter.eos(network, Eos, eosOptions);
+            eosinstance=eos;
              eos.getTableRows({
                 code: "voteproposal",
                 scope: "voteproposal",
@@ -33,14 +36,14 @@ Template.Vote.onCreated(async function () {
             }).then((tabledata=>{
                 document.getElementById("upper").innerHTML = "";
                 document.getElementById("proposal-group").innerHTML = "";
-                console.log("table data ", tabledata);  
                 var Id = FlowRouter.current().params.id; 
-                var row=tabledata.rows[Id]; 
+                row=tabledata.rows[Id]; 
                 for(var i = 0; i< row.proposal_options.length;i++){
                     var can=row.proposal_options[i];
                     titledata=row.proposal_description;
+                    propid=row.id;
                     document.getElementById("proposal-group").innerHTML += 
-                    "<div class = 'redovote hover'><div class= 'candidatevote'>"+can+"</div><div class='rank'><input class='input'/></div></div>";
+                    "<div class = 'redovote hover'><div class= 'candidatevote'>"+can+"</div><div class='rank'><input class='input' type='text' id='rankdata"+i+"'/></div></div>";
                 }
                 document.getElementById("proposal-group").innerHTML += 
                 "<button class='submit hover'>"+"submit"+"</button>"
@@ -51,11 +54,24 @@ Template.Vote.onCreated(async function () {
           
         }
     } else {
-        console.log("scatter not installed")
+        console.log("scatter not installed");
     }
 });
-Template.Vote.helpers({
-data:titledata,
-});
-
+Template.Vote.events({
+    'click .submit':function(e){
+        var data=[];
+        for(var i=0;i<row.proposal_options.length;i++){
+        var item=$("#rankdata"+i).val();
+        data.push(parseInt(item));
+        }
+        var username=localStorage.getItem("username")
+        eosinstance.contract("voteproposal").then(voting => {
+            voting.voteprop(propid ,data,username, { authorization: username }).then(
+                (res) => {
+                      console.log("response--",res);
+                }
+            )
+        })
+    }
+})
 });

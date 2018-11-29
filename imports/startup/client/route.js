@@ -20,10 +20,8 @@ FlowRouter.route('/', {
 });
 FlowRouter.route('/vote/:id', {
   name: 'Vote',
-  action(params) {
-    var cont=params.id;
-    console.log("---",params.id);
-    BlazeLayout.render('App_body', { main: 'Vote' ,id:cont});
+  action() {
+    BlazeLayout.render('App_body', { main: 'Vote' });
   }
 });
 

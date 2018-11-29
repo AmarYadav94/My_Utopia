@@ -72,8 +72,6 @@ Template.welcomePage.events({
             scatter = ScatterJS.scatter;
             const requiredFields = { accounts: [network] };
             const eos = scatter.eos(network, Eos, eosOptions);
-            localStorage.setItem("eosinstance",JSON.stringify(eos));
-            console.log("1-------------------",eos)
             scatter.getIdentity(requiredFields).then(() => {
                 const acc = scatter.identity.accounts.find(x => x.blockchain === 'eos');
                 const account = acc.name
