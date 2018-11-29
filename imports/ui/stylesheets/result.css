@@ -19,6 +19,8 @@
 #proposal-result{
     display: flex;
     justify-content: center;
+    border: 1px solid white;
+    padding: 3% 0;
 }
 
 #proposal-result-name{
@@ -41,5 +43,25 @@
     text-align: center;
     border: 1px solid white;
     width: 30%;
+    height: 25px;
+    line-height: 25px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.ep2{
+    text-align: center;
+    border: 1px solid white;
+    width: 30%;
+    line-height: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.vote-stat{
+    width: 18%;
+    text-align: center;
+    border: 1px solid white;
 }
 

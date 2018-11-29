@@ -158,10 +158,20 @@ Template.App_result.onRendered(async function () {
     }
     console.log("candidatedata", candidatedata);
     console.log("result after calculating ", result);
-    console.log("candidatelist ", candidatelist);
     
-    for(var i=0;i<result.length;i++){
+    /* for(var i=0;i<result.length;i++){
         document.getElementById("proposal-result-votes").innerHTML +="<br><div class = 'ep'>"+ result[i].toString().replace(/,/g, '/')+"</div>";
+        
+    } */
+
+
+    for(var i=0;i<result.length;i++){
+        document.getElementById("proposal-result-votes").innerHTML +="<br><div class = 'ep2'></div>";
+
+        for(var j=0;j<result[i].length;j++){
+            var val = result[i][j]
+            document.getElementsByClassName("ep2")[i].innerHTML += "<div class = 'vote-stat'>"+val+"</div>"
+        }
         
     }
 });
